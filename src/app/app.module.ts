@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import {Routes} from '@angular/router';
 import {StoreModule} from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { EntityDataModule } from '@ngrx/data';
+import {DefaultDataServiceConfig, EntityDataModule} from '@ngrx/data';
 import { entityConfig } from './shared/entity/entity-metadata';
 import {
   MatButtonModule,
@@ -19,12 +19,10 @@ import {
   MatTreeModule,
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
-import { FormCategoryComponent } from './shared/form-category/form-category.component';
 import { ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { DialogCategoryComponent } from './shared/dialog-category/dialog-category.component';
 import { QuizComponent } from './shared/quiz/quiz.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { QuestionnairesComponent } from './questionnaires/questionnaires.component';
@@ -39,6 +37,7 @@ import {Sidenav} from './sideNavBar/sidenav';
 import {defaultDataServiceConfig } from './config/configDataService';
 import { FormQuestionnaireComponent } from './form-questionnaire/form-questionnaire.component';
 import { DialogQuestionnaireComponent } from './dialog-questionnaire/dialog-questionnaire.component';
+import {MatTabsModule} from "@angular/material/tabs";
 
 
 @NgModule({

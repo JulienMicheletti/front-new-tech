@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from "rxjs";
+import {Questionnaire} from "../interfaces/questionnaire";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {DialogQuestionnaireComponent} from "../dialog-questionnaire/dialog-questionnaire.component";
+import {QuestionnaireService} from "../services/questionnaire.service";
+import {filter, flatMap} from "rxjs/operators";
 
 @Component({
   selector: 'app-questionnaires',
