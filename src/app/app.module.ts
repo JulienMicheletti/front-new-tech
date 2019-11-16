@@ -27,6 +27,8 @@ import { DialogCategoryComponent } from './shared/dialog-category/dialog-categor
 import { QuizComponent } from './shared/quiz/quiz.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { QuestionnairesComponent } from './questionnaires/questionnaires.component';
+import {CategoryComponent} from "./category/category.component";
+import {CategoriesComponent} from "./categories/categories.component";
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/categories', pathMatch: 'full' },
