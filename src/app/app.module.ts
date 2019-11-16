@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {Routes} from '@angular/router';
+import {MatTabsModule} from '@angular/material/tabs';
 import {StoreModule} from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { EntityDataModule } from '@ngrx/data';
+import {DefaultDataServiceConfig, EntityDataModule} from '@ngrx/data';
 import { entityConfig } from './entity/entity-metadata';
 import { CategoryComponent } from './category/category.component';
 import { CategoriesComponent } from './categories/categories.component';
@@ -16,7 +17,8 @@ import {
   MatDialogModule, MatFormFieldModule,
   MatIconModule, MatInputModule,
   MatListModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatTreeModule,
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import { FormCategoryComponent } from './form-category/form-category.component';
@@ -25,6 +27,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DialogCategoryComponent } from './dialog-category/dialog-category.component';
+import { QuestionnairesComponent } from './questionnaires/questionnaires.component';
+import {Sidenav} from './sideNavBar/sidenav';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {defaultDataServiceConfig } from './config/configDataService';
+import { FormQuestionnaireComponent } from './form-questionnaire/form-questionnaire.component';
+import { DialogQuestionnaireComponent } from './dialog-questionnaire/dialog-questionnaire.component';
+
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/categories', pathMatch: 'full' },
@@ -38,8 +47,12 @@ const appRoutes: Routes = [
     FormCategoryComponent,
     HomeComponent,
     DialogCategoryComponent,
+    QuestionnairesComponent,
+    Sidenav,
+    FormQuestionnaireComponent,
+    DialogQuestionnaireComponent,
   ],
-  entryComponents: [ DialogCategoryComponent ],
+  entryComponents: [ DialogCategoryComponent, Sidenav, DialogQuestionnaireComponent ],
 
   imports: [
     HttpClientModule,
@@ -60,10 +73,14 @@ const appRoutes: Routes = [
     MatCheckboxModule,
     MatDialogModule,
     MatInputModule,
+    MatTabsModule,
+    MatTreeModule,
+    MatSidenavModule,
     NgbModule,
 
+
   ],
-  providers: [],
+  providers: [{ provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
