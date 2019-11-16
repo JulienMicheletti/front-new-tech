@@ -15,13 +15,16 @@ import {
   MatDialogModule, MatFormFieldModule, MatGridListModule,
   MatIconModule, MatInputModule,
   MatListModule, MatSidenavModule, MatSliderModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatTreeModule,
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
+import { FormCategoryComponent } from './shared/form-category/form-category.component';
 import { ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { DialogCategoryComponent } from './shared/dialog-category/dialog-category.component';
 import { QuizComponent } from './shared/quiz/quiz.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { QuestionnairesComponent } from './questionnaires/questionnaires.component';
@@ -32,6 +35,11 @@ import {FormCategoryComponent} from "./form-category/form-category.component";
 const appRoutes: Routes = [
   { path: '', redirectTo: '/categories', pathMatch: 'full' },
 ];
+import {Sidenav} from './sideNavBar/sidenav';
+import {defaultDataServiceConfig } from './config/configDataService';
+import { FormQuestionnaireComponent } from './form-questionnaire/form-questionnaire.component';
+import { DialogQuestionnaireComponent } from './dialog-questionnaire/dialog-questionnaire.component';
+
 
 @NgModule({
   declarations: [
@@ -44,8 +52,12 @@ const appRoutes: Routes = [
     QuizComponent,
     QuestionnaireComponent,
     QuestionnairesComponent,
+    QuestionnairesComponent,
+    Sidenav,
+    FormQuestionnaireComponent,
+    DialogQuestionnaireComponent,
   ],
-  entryComponents: [ DialogCategoryComponent ],
+  entryComponents: [ DialogCategoryComponent, Sidenav, DialogQuestionnaireComponent ],
 
   imports: [
     HttpClientModule,
@@ -67,12 +79,16 @@ const appRoutes: Routes = [
     MatCheckboxModule,
     MatDialogModule,
     MatInputModule,
+    MatTabsModule,
+    MatTreeModule,
+    MatSidenavModule,
     NgbModule,
     MatGridListModule,
     MatSidenavModule,
 
+
   ],
-  providers: [],
+  providers: [{ provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
