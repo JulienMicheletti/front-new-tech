@@ -1,0 +1,19 @@
+mat-grid-tile.dark {
+  background: #353C5F no-repeat center;
+  background-size: contain;
+  transition: all .2s ease-in-out;
+}
+
+mat-grid-tile.clair {
+  background: #FF8D3F no-repeat center;
+  background-size: contain;
+  transition: all .2s ease-in-out;
+}
+
+mat-grid-tile.dark:hover {
+  transform: scale(0.9);
+}
+
+mat-grid-tile.clair:hover {
+  transform: scale(0.9);
+}

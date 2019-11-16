@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {Category} from "../shared/interfaces/category";
+import {Category} from '../interfaces/category';
 
 @Component({
   selector: 'app-dialog-category',

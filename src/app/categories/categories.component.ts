@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Category } from '../interfaces/category';
-import { CategoryService } from '../services/category.service';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {filter, flatMap} from 'rxjs/operators';
 import {DialogCategoryComponent} from '../dialog-category/dialog-category.component';
+import {Category} from "../shared/interfaces/category";
+import {CategoryService} from "../shared/services/category.service";
 
 
 @Component({

@@ -1,7 +1,7 @@
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {Category} from "../shared/interfaces/category";
+import {Category} from "../interfaces/category";
 
 @Component({
   selector: 'app-form-category',

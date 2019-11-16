@@ -1,10 +1,10 @@
-import {Category} from './category';
+import {Category} from '../shared/interfaces/category';
 
 export class Questionnaire {
   public readonly id: string;
   public readonly title: string;
   public readonly level: string;
-  public readonly category: string;
+  public readonly category: Category;
   public readonly questionnaire: Question[];
 
 }
