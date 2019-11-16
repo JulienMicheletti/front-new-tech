@@ -1,8 +1,8 @@
 import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
-import {Questionnaire} from '../interfaces/questionnaire';
 import {Router} from '@angular/router';
 import {of} from 'rxjs';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {Questionnaire} from "../../interfaces/questionnaire";
 
 @Component({
   selector: 'app-quiz',
@@ -10,7 +10,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
-  private _questionnaire: Questionnaire
+  private _questionnaire: Questionnaire;
   /**
    * Component constructor
    */

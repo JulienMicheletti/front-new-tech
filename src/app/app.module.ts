@@ -26,10 +26,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { QuizComponent } from './shared/quiz/quiz.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { QuestionnairesComponent } from './questionnaires/questionnaires.component';
-import {CategoryComponent} from "./category/category.component";
-import {CategoriesComponent} from "./categories/categories.component";
-import {DialogCategoryComponent} from "./dialog-category/dialog-category.component";
-import {FormCategoryComponent} from "./form-category/form-category.component";
 const appRoutes: Routes = [
   { path: '', redirectTo: '/categories', pathMatch: 'full' },
 ];
@@ -43,11 +39,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 @NgModule({
   declarations: [
     AppComponent,
-    CategoryComponent,
-    CategoriesComponent,
-    FormCategoryComponent,
     HomeComponent,
-    DialogCategoryComponent,
     QuizComponent,
     QuestionnaireComponent,
     QuestionnairesComponent,
@@ -56,7 +48,7 @@ import {MatTabsModule} from "@angular/material/tabs";
     FormQuestionnaireComponent,
     DialogQuestionnaireComponent,
   ],
-  entryComponents: [ DialogCategoryComponent, Sidenav, DialogQuestionnaireComponent ],
+  entryComponents: [ Sidenav, DialogQuestionnaireComponent ],
 
   imports: [
     HttpClientModule,

@@ -2,6 +2,7 @@ export const QUESTIONNAIRES = [
   {
     id: '1',
     title: 'Titre1',
+    nb: 2,
     level: 'Facile',
     category: 'Animaux',
     questionnaire: [
@@ -33,6 +34,8 @@ export const QUESTIONNAIRES = [
   },
   {
     id: '2',
+    title: 'Titre 2',
+    nb: 2,
     level: 'Difficile',
     category: 'Sport',
     questionnaire: [
