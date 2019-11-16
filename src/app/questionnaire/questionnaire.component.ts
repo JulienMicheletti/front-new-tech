@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {QUESTIONNAIRES} from "../_static/questionnaires";
 
 @Component({
   selector: 'app-questionnaire',
@@ -7,8 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionnaireComponent implements OnInit {
 
-  constructor() { }
+  // private property to store questionnaire value
+  private _questionnaire: any;
 
+  /**
+   * Component constructor
+   */
+  constructor() {
+    this._questionnaire = QUESTIONNAIRES[ 0 ];
+  }
+
+  /**
+   * Returns private property _questionnaire
+   */
+  get questionnaire(): any {
+    return this._questionnaire;
+  }
+
+  /**
+   * OnInit implementation
+   */
   ngOnInit() {
   }
 

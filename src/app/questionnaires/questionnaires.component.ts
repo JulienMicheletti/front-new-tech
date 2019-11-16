@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import {Questionnaire} from '../shared/interfaces/questionnaire';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {filter, flatMap} from "rxjs/operators";
+import {QuestionnaireComponent} from "../questionnaire/questionnaire.component";
+import {QUESTIONNAIRES} from "../_static/questionnaires";
 
 @Component({
   selector: 'app-questionnaires',
@@ -7,9 +13,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionnairesComponent implements OnInit {
 
-  constructor() { }
-
+  /**
+   * OnInit implementation
+   */
   ngOnInit() {
   }
+
 
 }

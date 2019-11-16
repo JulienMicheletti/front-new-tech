@@ -16,6 +16,8 @@ export class QuestionnairesService {
   constructor(private _http: HttpClient) {
     this._defaultQuestionnaire = {
       level: 'level',
+      title: 'title',
+      nb: 3,
       category: 'category',
       questionnaire: [ {
         title: 'title',
