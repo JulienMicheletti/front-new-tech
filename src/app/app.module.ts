@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {Routes} from '@angular/router';
@@ -13,9 +14,9 @@ import {
   MatButtonModule,
   MatCardModule,
   MatCheckboxModule,
-  MatDialogModule, MatFormFieldModule,
+  MatDialogModule, MatFormFieldModule, MatGridListModule,
   MatIconModule, MatInputModule,
-  MatListModule,
+  MatListModule, MatSidenavModule, MatSliderModule,
   MatToolbarModule
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
@@ -53,6 +54,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatFormFieldModule,
     MatToolbarModule,
+    MatSliderModule,
     MatCardModule,
     MatButtonModule,
     MatListModule,
@@ -61,6 +63,8 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatInputModule,
     NgbModule,
+    MatGridListModule,
+    MatSidenavModule,
 
   ],
   providers: [],
