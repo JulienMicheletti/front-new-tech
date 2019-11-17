@@ -103,5 +103,9 @@ export class FormQuestionnaireComponent implements OnInit {
     return this._cancel$;
   }
 
+  ngOnChanges(record) {
+    this._questionnaireForm.patchValue(this._model);
+  }
+
 
 }

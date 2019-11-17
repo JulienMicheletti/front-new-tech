@@ -33,6 +33,7 @@ import {defaultDataServiceConfig } from './config/configDataService';
 import { FormQuestionnaireComponent } from './form-questionnaire/form-questionnaire.component';
 import { DialogQuestionnaireComponent } from './dialog-questionnaire/dialog-questionnaire.component';
 import {MatTabsModule} from "@angular/material/tabs";
+import { UpdateQuestionnaireComponent } from './update-questionnaire/update-questionnaire.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import {MatTabsModule} from "@angular/material/tabs";
     QuestionnairesComponent,
     FormQuestionnaireComponent,
     DialogQuestionnaireComponent,
+    UpdateQuestionnaireComponent,
   ],
   entryComponents: [ DialogQuestionnaireComponent ],
 

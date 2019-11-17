@@ -4,6 +4,7 @@ import {HomeComponent} from './home/home.component';
 import {QuestionnaireComponent} from "./questionnaire/questionnaire.component";
 import {FormQuestionnaireComponent} from './form-questionnaire/form-questionnaire.component';
 import {QuestionnairesComponent} from "./questionnaires/questionnaires.component";
+import {UpdateQuestionnaireComponent} from './update-questionnaire/update-questionnaire.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,7 @@ const routes: Routes = [
   { path: 'questionnaire', component: QuestionnaireComponent},
   { path: 'questionnaires', component: QuestionnairesComponent },
   { path: 'ajouterQuestionnaire', component: FormQuestionnaireComponent },
-  { path: 'voirQuizz/:id', component: QuestionnaireComponent },
+  { path: 'voirQuizz/:id', component: UpdateQuestionnaireComponent },
 
 ];
 

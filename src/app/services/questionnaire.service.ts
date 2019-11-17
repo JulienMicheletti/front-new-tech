@@ -73,7 +73,7 @@ export class QuestionnairesService {
    * Function to return one questionnaire for current id
    */
   fetchOne(id: string): Observable<Questionnaire> {
-    return this._http.get<Questionnaire>(this._backendURL.oneQuestionnaires.replace(':id', id));
+    return this._http.get<Questionnaire>(this._backendURL.oneQuestionnaire.replace(':id', id));
   }
 
   /**
