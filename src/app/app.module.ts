@@ -33,6 +33,8 @@ import {defaultDataServiceConfig } from './config/configDataService';
 import { FormQuestionnaireComponent } from './form-questionnaire/form-questionnaire.component';
 import { DialogQuestionnaireComponent } from './dialog-questionnaire/dialog-questionnaire.component';
 import {MatTabsModule} from "@angular/material/tabs";
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -74,6 +76,8 @@ import {MatTabsModule} from "@angular/material/tabs";
     NgbModule,
     MatGridListModule,
     MatSidenavModule,
+    MatOptionModule,
+    MatSelectModule,
 
 
   ],

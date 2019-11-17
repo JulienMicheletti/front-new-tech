@@ -69,6 +69,10 @@ export class QuestionnairesService {
       );
   }
 
+  fetchByCategory(category: string): Observable<Questionnaire[]> {
+    return this._http.get<Questionnaire[]>(this._backendURL.allCategoryQuestionnaires.replace(':category', category));
+  }
+
   /**
    * Function to return one questionnaire for current id
    */

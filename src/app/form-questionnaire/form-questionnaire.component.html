@@ -15,7 +15,12 @@
       </mat-error>
     </mat-form-field>
     <mat-form-field class="full-width" [class.mgb15]="questionnaireForm.get('category').dirty">
-      <input matInput placeholder="Catégorie du questionnaire" formControlName="category" required name="category" />
+      <mat-select placeholder="Catégorie" formControlName="category" required name="category" >
+        <mat-option value="Sport">Sport</mat-option>
+        <mat-option value="Science">Science</mat-option>
+        <mat-option value="Cinema">Cinéma</mat-option>
+        <mat-option value="Musique">Musique</mat-option>
+      </mat-select>
       <mat-error *ngIf="questionnaireForm.get('category').dirty && questionnaireForm.get('category').hasError('required')">
         Categorie est <strong>requis</strong>
       </mat-error>

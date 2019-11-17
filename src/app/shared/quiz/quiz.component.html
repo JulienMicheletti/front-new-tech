@@ -4,6 +4,7 @@
     <mat-card-header>
       <mat-card-title>{{questionnaire.title}}</mat-card-title>
       <mat-card-subtitle>Difficulté {{questionnaire.level}}</mat-card-subtitle>
+      <mat-card-subtitle>Catégorie {{questionnaire.category}}</mat-card-subtitle>
     </mat-card-header>
     <button mat-button [routerLink]="['/voirQuizz', questionnaire.id]">Jouer</button>
   </mat-card-actions>
