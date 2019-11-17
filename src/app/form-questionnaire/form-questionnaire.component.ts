@@ -8,7 +8,8 @@ import {Questionnaire} from "../shared/interfaces/questionnaire";
   styleUrls: ['./form-questionnaire.component.css']
 })
 export class FormQuestionnaireComponent implements OnInit {
-
+  // private property to store update mode flag
+  private _isUpdateMode: boolean;
   //Formulaire groupe pour le questionnaire
   private _questionnaireForm: FormGroup;
 
@@ -29,6 +30,13 @@ export class FormQuestionnaireComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  /**
+   * Returns private property _isUpdateMode
+   */
+  get isUpdateMode(): boolean {
+    return this._isUpdateMode;
   }
 
   initForm() {
@@ -105,6 +113,7 @@ export class FormQuestionnaireComponent implements OnInit {
 
   ngOnChanges(record) {
     if (record.model && record.model.currentValue) {
+      this._isUpdateMode = true;
       this._model = record.model.currentValue;
       // create question array first
       for (let question = 0; question < this._model.questionnaire.length; question++) {

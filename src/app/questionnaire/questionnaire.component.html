@@ -11,7 +11,7 @@
         </mat-error>
       </mat-form-field>
       <br/>
-      <mat-form-field class="full-width" [class.mgb15]="questionnaireForm.get('level').dirty">
+      <mat-form-field class="full-width" [class.mgb15]="questionna+ireForm.get('level').dirty">
         <input matInput placeholder="Niveau de difficulté du quizz" formControlName="level" required name="level" />
         <mat-error *ngIf="questionnaireForm.get('level').dirty && questionnaireForm.get('level').hasError('required')">
           Level est <strong>requis</strong>

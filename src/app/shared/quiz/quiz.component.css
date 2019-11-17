@@ -10,22 +10,28 @@
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: contain;
 }
-
+mat-card-actions {
+  background-color: darkgrey;
+}
 mat-card-footer {
   margin-bottom: 10px;
 }
 
 
 mat-card-subtitle {
-  margin-bottom: 40px;
+  text-align: left;
+  font-size: 16px;
 }
 
 
 @media (min-width: 768px) {
   :host(.wide) mat-card,
-  :host(.wide) mat-list-item{
-    width: 600px;
+  :host(.wide) mat-list-item{width: 600px;
   }
+}
+
+mat-card-title {
+  text-align: left;
 }
 
 mat-card,

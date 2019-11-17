@@ -1,4 +1,7 @@
-<h2 mat-dialog-title class="card-title">Création d'un questionnaire</h2>
+<h2 mat-dialog-title *ngIf="isUpdateMode">Modification du questionnaire</h2>
+<h2 mat-dialog-title *ngIf="!isUpdateMode">Création d'un questionnaire</h2>
+
+
 <mat-dialog-content>
   <form novalidate [formGroup]="questionnaireForm">
     <mat-form-field class="full-width" [class.mgb15]="questionnaireForm.get('title').dirty">
@@ -16,16 +19,18 @@
     </mat-form-field>
     <mat-form-field class="full-width" [class.mgb15]="questionnaireForm.get('category').dirty">
       <mat-select placeholder="Catégorie" formControlName="category" required name="category" >
-        <mat-option value="Sport">Sport</mat-option>
-        <mat-option value="Science">Science</mat-option>
-        <mat-option value="Cinema">Cinéma</mat-option>
-        <mat-option value="Musique">Musique</mat-option>
+        <mat-option value="sport">Sport</mat-option>
+        <mat-option value="science">Science</mat-option>
+        <mat-option value="cinema">Cinéma</mat-option>
+        <mat-option value="musique">Musique</mat-option>
       </mat-select>
       <mat-error *ngIf="questionnaireForm.get('category').dirty && questionnaireForm.get('category').hasError('required')">
         Categorie est <strong>requis</strong>
       </mat-error>
     </mat-form-field>
     <hr />
+
+
     <!-- section Questions -->
     <h6 class="text-center text-primary">Les questions à définir</h6>
     <div formArrayName="questionnaire"
@@ -49,6 +54,8 @@
         <mat-form-field class="full-width">
           <input matInput placeholder="Réponse à la question" formControlName="response" name="response"/>
         </mat-form-field>
+
+
         <!-- section Choices -->
         <div class="text-right">
           <button mat-raised-button color="primary" type="button" (click)="addChoice(question)">
@@ -72,6 +79,7 @@
           </div>
         </div>
         <!-- fin section Choices -->
+
       </div>
     </div>
     <button mat-raised-button color="warn" type="button" (click)="addQuestion()">
@@ -86,10 +94,6 @@
 
     <mat-dialog-actions>
       <button mat-button type="button" (click)="cancel()">Cancel</button>
-      <button mat-button color="primary" type="submit" (click)="save(questionnaireForm.value)">Save</button>
+      <button mat-button color="primary" type="submit" (click)="save(questionnaireForm.value)" [disabled]="questionnaireForm.invalid">Save</button>
     </mat-dialog-actions>
 
-{{ this.questionnaireForm.value | json }}
-
-
-<!--            -->
