@@ -11,15 +11,33 @@ import {Questionnaire} from "../interfaces/questionnaire";
 })
 export class QuizComponent implements OnInit {
   private _questionnaire: Questionnaire;
+  // private property to store delete$ value
+  private readonly _delete$: EventEmitter<Questionnaire>;
   /**
    * Component constructor
    */
-  constructor() {
+  constructor(private _router: Router) {
+    this._delete$ = new EventEmitter<Questionnaire>();
   }
 
   @Input()
   set questionnaire(value: Questionnaire) {
     this._questionnaire = value;
+  }
+
+  /**
+   * Returns private property _delete$
+   */
+  @Output('deleteQuestionnaire') get delete$(): EventEmitter<Questionnaire> {
+    return this._delete$;
+  }
+
+
+  /**
+   * Function to emit event to delete current questionnaire
+   */
+  delete(questionnaire: Questionnaire) {
+    this._delete$.emit(questionnaire);
   }
 
   get questionnaire(): Questionnaire {

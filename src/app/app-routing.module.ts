@@ -6,11 +6,11 @@ import {FormQuestionnaireComponent} from './form-questionnaire/form-questionnair
 import {QuestionnairesComponent} from "./questionnaires/questionnaires.component";
 import {UpdateQuestionnaireComponent} from './update-questionnaire/update-questionnaire.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'questionnaire', component: QuestionnaireComponent},
+  { path: 'questionnaires/:id', component: QuestionnairesComponent },
   { path: 'questionnaires', component: QuestionnairesComponent },
   { path: 'ajouterQuestionnaire', component: FormQuestionnaireComponent },
   { path: 'voirQuizz/:id', component: QuestionnaireComponent },
@@ -19,7 +19,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

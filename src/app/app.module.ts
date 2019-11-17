@@ -34,6 +34,8 @@ import { FormQuestionnaireComponent } from './form-questionnaire/form-questionna
 import { DialogQuestionnaireComponent } from './dialog-questionnaire/dialog-questionnaire.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import { UpdateQuestionnaireComponent } from './update-questionnaire/update-questionnaire.component';
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -76,6 +78,8 @@ import { UpdateQuestionnaireComponent } from './update-questionnaire/update-ques
     NgbModule,
     MatGridListModule,
     MatSidenavModule,
+    MatOptionModule,
+    MatSelectModule,
 
 
   ],

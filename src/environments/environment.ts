@@ -10,7 +10,8 @@ export const environment = {
     port: '3000',
     endpoints: {
       allQuestionnaires: '/questionnaires',
-      oneQuestionnaire: '/questionnaires/:id'
+      oneQuestionnaire: '/questionnaires/:id',
+      allCategoryQuestionnaires: '/questionnaires/category/:category',
     }
   }
 };
