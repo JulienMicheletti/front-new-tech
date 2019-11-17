@@ -1,8 +1,7 @@
 
 export interface Questionnaire {
-  id: string;
+  id?: string;
   title: string;
-  nb: number;
   level: string;
   category: string;
   questionnaire: Question[];

@@ -1,11 +1,11 @@
 import { EntityMetadataMap } from '@ngrx/data';
 
 const entityMetadata: EntityMetadataMap = {
-  Questionnaire: {}
+  Questionnaires: {}
 };
 
 // sert a definir les pluriels des entites
-const pluralNames = {Questionnaire: 'Questionnaires'};
+const pluralNames = {Questionnaires: 'Questionnaires'};
 
 export const entityConfig = {
   entityMetadata,

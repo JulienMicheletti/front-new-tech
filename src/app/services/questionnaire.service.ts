@@ -1,29 +1,104 @@
 import { Injectable } from '@angular/core';
-import {
-  EntityActionOptions,
-  EntityCollectionServiceBase,
-  EntityCollectionServiceElementsFactory
-} from '@ngrx/data';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Questionnaire } from '../interfaces/questionnaire';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {environment} from '../config/environment';
-import {HttpClient} from '@angular/common/http';
+import { defaultIfEmpty, filter, map } from 'rxjs/operators';
+import {environment} from "../../environments/environment";
 
-@Injectable({ providedIn: 'root' })
-export class QuestionnaireService extends EntityCollectionServiceBase<Questionnaire> {
+@Injectable({
+  providedIn: 'root'
+})
+export class QuestionnairesService {
+  // private property to store all backend URLs
+  private readonly _backendURL: any;
+  // private property to store default questionnaire
+  private readonly _defaultQuestionnaire: Questionnaire;
 
-  /**
-   * Permet de creer, retrouver, mettre a jour et surprimer les
-   * questionnaire de la BD
-   */
-  constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory, private http: HttpClient) {
-    super('Questionnaire', serviceElementsFactory);
+  constructor(private _http: HttpClient) {
+    this._defaultQuestionnaire = {
+      title: 'test',
+      level: 'Facile',
+      category: 'Animaux',
+      questionnaire: [
+        {
+          title: 'Question facile',
+          choices: [
+            {
+              choice: 'Réponse fausse',
+            },
+            {
+              choice: 'Réponse juste',
+            },
+          ],
+          response: 'Réponse juste',
+        }
+      ],
+    };
+    this._backendURL = {};
+
+    // build backend base url
+    let baseUrl = `${environment.backend.protocol}://${environment.backend.host}`;
+    if (environment.backend.port) {
+      baseUrl += `:${environment.backend.port}`;
+    }
+
+    // build all backend urls
+    Object.keys(environment.backend.endpoints).forEach(k => this._backendURL[ k ] = `${baseUrl}${environment.backend.endpoints[ k ]}`);
   }
 
-  getAll(options?: EntityActionOptions): Observable<Questionnaire[]> {
-    return this.http.get<Questionnaire[]>(
-      `${environment.apiUrl}/questionnaires`
-    );
+  /**
+   * Returns the default questionnaire value
+   */
+  get defaultQuestionnaire(): Questionnaire {
+    return this._defaultQuestionnaire;
+  }
+
+  /**
+   * Function to return list of questionnaire
+   */
+  fetch(): Observable<Questionnaire[]> {
+    return this._http.get<Questionnaire[]>(this._backendURL.allQuestionnaires)
+      .pipe(
+        filter(_ => !!_),
+        defaultIfEmpty([])
+      );
+  }
+
+  /**
+   * Function to return one questionnaire for current id
+   */
+  fetchOne(id: string): Observable<Questionnaire> {
+    return this._http.get<Questionnaire>(this._backendURL.oneQuestionnaires.replace(':id', id));
+  }
+
+  /**
+   * Function to create a new questionnaire
+   */
+  create(questionnaire: Questionnaire): Observable<any> {
+    return this._http.post<Questionnaire>(this._backendURL.allQuestionnaires, questionnaire, this._options());
+  }
+
+  /**
+   * Function to update one questionnaire
+   */
+  update(questionnaire: Questionnaire): Observable<any> {
+    return this._http.put<Questionnaire>(this._backendURL.oneQuestionnaires.replace(':id', questionnaire.id), questionnaire, this._options());
+  }
+
+  /**
+   * Function to delete one questionnaire for current id
+   */
+  delete(id: string): Observable<string> {
+    return this._http.delete(this._backendURL.oneQuestionnaires.replace(':id', id))
+      .pipe(
+        map(_ => id)
+      );
+  }
+
+  /**
+   * Function to return request options
+   */
+  private _options(headerList: object = {}): any {
+    return { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' }, headerList)) };
   }
 }

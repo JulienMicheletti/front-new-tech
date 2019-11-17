@@ -29,7 +29,6 @@ import { QuestionnairesComponent } from './questionnaires/questionnaires.compone
 const appRoutes: Routes = [
   { path: '', redirectTo: '/categories', pathMatch: 'full' },
 ];
-import {Sidenav} from './sideNavBar/sidenav';
 import {defaultDataServiceConfig } from './config/configDataService';
 import { FormQuestionnaireComponent } from './form-questionnaire/form-questionnaire.component';
 import { DialogQuestionnaireComponent } from './dialog-questionnaire/dialog-questionnaire.component';
@@ -44,11 +43,10 @@ import {MatTabsModule} from "@angular/material/tabs";
     QuestionnaireComponent,
     QuestionnairesComponent,
     QuestionnairesComponent,
-    Sidenav,
     FormQuestionnaireComponent,
     DialogQuestionnaireComponent,
   ],
-  entryComponents: [ Sidenav, DialogQuestionnaireComponent ],
+  entryComponents: [ DialogQuestionnaireComponent ],
 
   imports: [
     HttpClientModule,
