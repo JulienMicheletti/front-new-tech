@@ -1,8 +1,12 @@
 <section class="text-center">
+  <br/><br/><br/>
+  <button type="button" class="btn btn-success" (click)="showDialog()">Creer un questionnaire</button>
+</section>
+
+<section class="text-center">
 <div *ngFor="let questionnaire of questionnaires" class="card">
  <app-quiz [questionnaire]="questionnaire"></app-quiz>
 </div>
 
-<button type="button" class="btn btn-success" (click)="showDialog()">Creer un questionnaire</button>
 
 </section>

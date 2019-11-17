@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'questionnaire', component: QuestionnaireComponent},
   { path: 'questionnaires', component: QuestionnairesComponent },
   { path: 'ajouterQuestionnaire', component: FormQuestionnaireComponent },
-  { path: 'voirQuizz/:id', component: UpdateQuestionnaireComponent },
+  { path: 'voirQuizz/:id', component: QuestionnaireComponent },
+  { path: 'editQuizz/:id', component: UpdateQuestionnaireComponent },
 
 ];
 

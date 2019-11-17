@@ -25,10 +25,10 @@ export class FormQuestionnaireComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder) {
     this._submit$ = new EventEmitter<Questionnaire>();
     this._cancel$ = new EventEmitter<void>();
+    this.initForm();
   }
 
   ngOnInit() {
-    this.initForm();
   }
 
   initForm() {
@@ -50,7 +50,7 @@ export class FormQuestionnaireComponent implements OnInit {
 
   private createChoice() {
     return this._formBuilder.group({
-      choice: ['', Validators.required]
+      choice: ['', Validators.required],
     });
   }
 
@@ -104,7 +104,27 @@ export class FormQuestionnaireComponent implements OnInit {
   }
 
   ngOnChanges(record) {
-    this._questionnaireForm.patchValue(this._model);
+    if (record.model && record.model.currentValue) {
+      this._model = record.model.currentValue;
+      // create question array first
+      for (let question = 0; question < this._model.questionnaire.length; question++) {
+         const questionFormArray = this._questionnaireForm.get('questionnaire') as FormArray;
+         questionFormArray.removeAt(this._model.questionnaire.length - 1);
+         if (question !== this._model.questionnaire.length ) {
+             questionFormArray.push(this.createQuestion());
+          }
+
+         // for each line, now add all the necessary choices formgroups
+         for (let choice = 0; choice < this._model.questionnaire[question].choices.length; choice++){
+            const choiceFormsArray = questionFormArray.at(question).get('choices') as FormArray;
+            choiceFormsArray.removeAt(this._model.questionnaire[question].choices.length - 1);
+            if (choice !== this._model.questionnaire[question].choices.length ) {
+              choiceFormsArray.push(this.createChoice());
+            }
+         }
+      }
+      this._questionnaireForm.patchValue(this._model);
+    }
   }
 
 

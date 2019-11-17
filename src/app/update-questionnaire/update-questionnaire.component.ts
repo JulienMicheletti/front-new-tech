@@ -25,9 +25,10 @@ export class UpdateQuestionnaireComponent implements OnInit {
    * OnInit implementation
    */
   ngOnInit() {
+    let idQuest;
     this._route.params
       .pipe(
-        map((params: any) => params.id),
+        map((params: any) => idQuest = params.id),
         flatMap((id: string) => this._questionnairesService.fetchOne(id))
       )
       .subscribe((questionnaire: Questionnaire) => {
@@ -41,9 +42,10 @@ export class UpdateQuestionnaireComponent implements OnInit {
         this._questionnairesDialog.afterClosed()
           .pipe(
             filter(_ => !!_),
-            flatMap(_ => this._questionnairesService.update(_))
+            flatMap(_ => this._questionnairesService.update(_, idQuest))
           )
-          .subscribe(() => undefined, () => undefined, () => this._router.navigate([ '/questionnaires' ]));
+          .subscribe(() => undefined, (err) => console.log(err), () => this._router.navigate([ '/questionnaires' ]));
       });
   }
+
 }

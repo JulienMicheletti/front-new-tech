@@ -9,6 +9,6 @@
   </mat-card-actions>
   <mat-card-footer>
     <button mat-button><mat-icon svgIcon="icon-delete"></mat-icon></button>
-    <button mat-button> <mat-icon svgIcon="icon-edit"></mat-icon></button>
+    <button mat-button [routerLink]="['/editQuizz', questionnaire.id]"><mat-icon svgIcon="icon-edit"></mat-icon></button>
   </mat-card-footer>
 </mat-card>
