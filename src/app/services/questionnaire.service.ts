@@ -78,7 +78,7 @@ export class QuestionnairesService {
    * Function to return one questionnaire for current id
    */
   fetchOne(id: string): Observable<Questionnaire> {
-    return this._http.get<Questionnaire>(this._backendURL.oneQuestionnaires.replace(':id', id));
+    return this._http.get<Questionnaire>(this._backendURL.oneQuestionnaire.replace(':id', id));
   }
 
   /**
@@ -91,8 +91,8 @@ export class QuestionnairesService {
   /**
    * Function to update one questionnaire
    */
-  update(questionnaire: Questionnaire): Observable<any> {
-    return this._http.put<Questionnaire>(this._backendURL.oneQuestionnaires.replace(':id', questionnaire.id), questionnaire, this._options());
+  update(questionnaire: Questionnaire, id: string): Observable<any> {
+    return this._http.put<Questionnaire>(this._backendURL.oneQuestionnaire.replace(':id', id), questionnaire, this._options());
   }
 
   /**

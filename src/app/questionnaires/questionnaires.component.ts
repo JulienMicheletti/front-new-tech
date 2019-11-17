@@ -43,10 +43,6 @@ export class QuestionnairesComponent implements OnInit {
     return this.questionnaireService.fetch();
   }
 
-  update(questionnaire: Questionnaire) {
-    this.questionnaireService.update(questionnaire);
-  }
-
   get questionnaires(): Questionnaire[] {
     return this._questionnaires;
   }
