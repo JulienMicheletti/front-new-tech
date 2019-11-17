@@ -10,7 +10,9 @@
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: contain;
 }
-
+mat-card-actions {
+  background-color: darkgrey;
+}
 mat-card-footer {
   margin-bottom: 10px;
 }

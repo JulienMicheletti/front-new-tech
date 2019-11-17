@@ -3,6 +3,6 @@
  <app-quiz [questionnaire]="questionnaire" (deleteQuestionnaire)="delete($event)"></app-quiz>
 </div>
 
-<button type="button" class="btn btn-success" (click)="showDialog()">Creer un questionnaire</button>
+<button mat-raised-button color="primary" type="button" class="btn-create" (click)="showDialog()">Creer un questionnaire</button>
 
 </section>

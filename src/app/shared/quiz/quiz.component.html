@@ -1,11 +1,11 @@
 <mat-card class="my-card">
   <img mat-card-image  src="https://www.medreps.com/medical-sales-careers/wp-content/uploads/Person-thinking.jpg">
-  <mat-card-actions>
     <mat-card-header>
       <mat-card-title>{{questionnaire.title}}</mat-card-title>
       <mat-card-subtitle>Difficulté {{questionnaire.level}}</mat-card-subtitle>
       <mat-card-subtitle>Catégorie {{questionnaire.category}}</mat-card-subtitle>
     </mat-card-header>
+  <mat-card-actions class="action">
     <button mat-button [routerLink]="['/voirQuizz', questionnaire.id]">Jouer</button>
   </mat-card-actions>
   <mat-card-footer>
