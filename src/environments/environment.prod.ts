@@ -6,7 +6,7 @@ export const environment = {
     port: '3000',
     endpoints: {
       allQuestionnaires: '/questionnaires',
-      oneQuestionnaire: '/questionnaire/:id',
+      oneQuestionnaire: '/questionnaires/:id',
       allCategoryQuestionnaires: '/questionnaires/category/:category',
     }
   }

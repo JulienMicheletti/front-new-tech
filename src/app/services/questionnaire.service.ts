@@ -7,8 +7,9 @@ import {
 import { Questionnaire } from '../shared/interfaces/questionnaire';
 import {Observable} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { defaultIfEmpty, filter, map } from 'rxjs/operators';
+import {defaultIfEmpty, filter, map, tap} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
+import {Logger} from "tslint/lib/runner";
 
 @Injectable({
   providedIn: 'root'
@@ -98,9 +99,9 @@ export class QuestionnairesService {
    * Function to delete one questionnaire for current id
    */
   delete(id: string): Observable<string> {
-    return this._http.delete(this._backendURL.oneQuestionnaires.replace(':id', id))
+    return this._http.delete(this._backendURL.oneQuestionnaire.replace(':id', id))
       .pipe(
-        map(_ => id)
+        map(_ => id),
       );
   }
 

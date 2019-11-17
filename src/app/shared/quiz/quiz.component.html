@@ -9,7 +9,7 @@
     <button mat-button [routerLink]="['/voirQuizz', questionnaire.id]">Jouer</button>
   </mat-card-actions>
   <mat-card-footer>
-    <button mat-button><mat-icon svgIcon="icon-delete"></mat-icon></button>
+    <button mat-button><mat-icon svgIcon="icon-delete" (click)="delete(questionnaire)"></mat-icon></button>
     <button mat-button> <mat-icon svgIcon="icon-edit"></mat-icon></button>
   </mat-card-footer>
 </mat-card>

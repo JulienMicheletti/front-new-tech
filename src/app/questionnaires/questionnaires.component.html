@@ -1,6 +1,6 @@
 <section class="text-center">
 <div *ngFor="let questionnaire of questionnaires" class="card">
- <app-quiz [questionnaire]="questionnaire"></app-quiz>
+ <app-quiz [questionnaire]="questionnaire" (deleteQuestionnaire)="delete($event)"></app-quiz>
 </div>
 
 <button type="button" class="btn btn-success" (click)="showDialog()">Creer un questionnaire</button>

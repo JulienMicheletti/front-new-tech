@@ -34,7 +34,9 @@ export class QuestionnairesComponent implements OnInit {
   }
 
   delete(questionnaire: Questionnaire) {
-    this.questionnaireService.delete(questionnaire.id);
+    this.questionnaireService
+      .delete(questionnaire.id)
+      .subscribe(_ => this._questionnaires = this._questionnaires.filter(__ => __.id !== _));
   }
 
   getQuestionnaires(): Observable<Questionnaire[]>  {
