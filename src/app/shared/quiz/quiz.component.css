@@ -1,0 +1,46 @@
+@media (min-width: 768px) {
+  :host(.wide) mat-card,
+  :host(.wide) mat-list-item{
+    width: 600px;
+  }
+}
+
+mat-card,
+mat-list-item {
+  color: rgba(0,0,0,0.87);
+  background-color: white;
+  margin: 10px;
+  width: 360px;
+}
+
+mat-list-item {
+  height: 22px;
+  padding: 0;
+  margin-left: -12px;
+  font-size: 14px;
+}
+
+@media (max-width: 412px) {
+  .buttons-info {
+    margin-top: -34px;
+  }
+}
+
+.mat-whiteframe-2dp {
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,.2),
+  0 2px 2px 0 rgba(0,0,0,.14),
+  0 3px 1px -2px rgba(0,0,0,.12);
+}
+
+
+@media (max-width: 412px) {
+  img {
+    margin-right: 3px;
+  }
+}
+
+@media (max-width: 600px) {
+  img {
+    margin-right: 5px;
+  }
+}

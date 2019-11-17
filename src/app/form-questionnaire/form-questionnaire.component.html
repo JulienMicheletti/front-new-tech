@@ -36,9 +36,9 @@
         <!-- section Choices -->
         <button mat-icon-button color="accent" type="button" (click)="addChoice(question)">Ajouter un choix de réponse</button>
         <div formArrayName="choices">
-          <div class="form-group" *ngFor="let choice of question.get('choices').controls; let choiceIndex = index">
+          <div *ngFor="let choice of question.get('choices').controls; let choiceIndex = index" [formGroupName]="choiceIndex">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Reponse potentiel">
+              <input matInput formControlName="choice" placeholder="Reponse potentiel">
             </mat-form-field>
             <button mat-icon-button color="accent" type="button" (click)="deleteChoice(question, choiceIndex)">Suprimer le choix</button>
           </div>

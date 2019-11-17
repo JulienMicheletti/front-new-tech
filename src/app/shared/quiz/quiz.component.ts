@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
+import {Router} from '@angular/router';
+import {of} from 'rxjs';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {Questionnaire} from "../interfaces/questionnaire";
 
 @Component({
   selector: 'app-quiz',
@@ -6,10 +10,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
+  private _questionnaire: Questionnaire;
+  /**
+   * Component constructor
+   */
+  constructor() {
+  }
 
-  constructor() { }
+  @Input()
+  set questionnaire(value: Questionnaire) {
+    this._questionnaire = value;
+  }
 
-  ngOnInit() {
+  get questionnaire(): Questionnaire {
+    return this._questionnaire;
+  }
+
+  ngOnInit(): void {
   }
 
 }

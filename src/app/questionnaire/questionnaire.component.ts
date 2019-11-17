@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {QuestionnaireService} from '../services/questionnaire.service';
+import {QuestionnairesService} from '../services/questionnaire.service';
 import {flatMap, map} from 'rxjs/operators';
 import {Questionnaire} from '../shared/interfaces/questionnaire';
+import {QUESTIONNAIRES} from "../_static/questionnaires";
 
 @Component({
   selector: 'app-questionnaire',
@@ -13,18 +14,23 @@ export class QuestionnaireComponent implements OnInit {
 
   private _questionnaire: Questionnaire;
 
-  constructor(private _route: ActivatedRoute, private _router: Router, private _questService: QuestionnaireService) {
-    this._questionnaire = null;
-  }
-
-  ngOnInit() {
-    this._route.params
-      .pipe(
-        map((params: any) => params.id),
-        flatMap((id: string) => this._questService.getById(id))
-      ).subscribe((quest: Questionnaire) => this._questionnaire = quest);
+  constructor() {
+    // this._questionnaire = null;
+    this._questionnaire = QUESTIONNAIRES[ 0 ];
 
   }
+
+  /**
+   * Returns private property _questionnaire
+   */
+  get questionnaire(): any {
+    return this._questionnaire;
+  }
+
+  /**
+   * OnInit implementation
+   */
+  ngOnInit() {}
 
 
 

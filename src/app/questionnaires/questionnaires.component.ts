@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs';
-import {QuestionnaireService} from '../services/questionnaire.service';
-import {Questionnaire} from '../shared/interfaces/questionnaire';
-import {DialogQuestionnaireComponent} from '../dialog-questionnaire/dialog-questionnaire.component';
-import {MatDialog, MatDialogRef} from '@angular/material';
-import {DialogCategoryComponent} from '../dialog-category/dialog-category.component';
-import {filter, flatMap} from 'rxjs/operators';
+import {Observable} from "rxjs";
+import {Questionnaire} from "../shared/interfaces/questionnaire";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {DialogQuestionnaireComponent} from "../dialog-questionnaire/dialog-questionnaire.component";
+import {QuestionnairesService} from "../services/questionnaire.service";
+import {filter, flatMap} from "rxjs/operators";
 
 @Component({
   selector: 'app-questionnaires',
@@ -14,18 +13,13 @@ import {filter, flatMap} from 'rxjs/operators';
 })
 export class QuestionnairesComponent implements OnInit {
 
-  loading$: Observable<boolean>;
-  questionnaire$: Observable<Questionnaire[]>;
-
   // private property to store dialog reference
   private _questionnaireDialog: MatDialogRef<DialogQuestionnaireComponent>;
 
   // tableau de questionnaires
   private _questionnaires: Questionnaire[];
 
-  constructor(private questionnaireService: QuestionnaireService, private _dialog: MatDialog) {
-    this.questionnaire$ = questionnaireService.entities$;
-    this.loading$ = questionnaireService.loading$;
+  constructor(private questionnaireService: QuestionnairesService, private _dialog: MatDialog) {
     this._questionnaires = [];
   }
 
@@ -34,9 +28,12 @@ export class QuestionnairesComponent implements OnInit {
       .subscribe((questionnaires: Questionnaire[]) => this._questionnaires = questionnaires);
   }
 
-  add(questionnaire: Questionnaire): Observable<Questionnaire[]> {
-    this.questionnaireService.add(questionnaire);
-    return this.questionnaire$;
+  private add(questionnaire: Questionnaire): Observable<Questionnaire[]> {
+    return this.questionnaireService
+      .create(questionnaire)
+      .pipe(
+        flatMap(_ => this.questionnaireService.fetch())
+      );
   }
 
   delete(questionnaire: Questionnaire) {
@@ -44,7 +41,7 @@ export class QuestionnairesComponent implements OnInit {
   }
 
   getQuestionnaires(): Observable<Questionnaire[]>  {
-    return this.questionnaireService.getAll();
+    return this.questionnaireService.fetch();
   }
 
   update(questionnaire: Questionnaire) {
@@ -70,8 +67,6 @@ export class QuestionnairesComponent implements OnInit {
       filter(_ => !!_),
       flatMap(_ => this.add(_))
     ).subscribe((questionnaire: Questionnaire[]) => this._questionnaires = questionnaire);
-
-
   }
 }
 
