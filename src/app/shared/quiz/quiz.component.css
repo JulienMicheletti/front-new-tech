@@ -19,15 +19,19 @@ mat-card-footer {
 
 
 mat-card-subtitle {
-  margin-bottom: 40px;
+  text-align: left;
+  font-size: 16px;
 }
 
 
 @media (min-width: 768px) {
   :host(.wide) mat-card,
-  :host(.wide) mat-list-item{
-    width: 600px;
+  :host(.wide) mat-list-item{width: 600px;
   }
+}
+
+mat-card-title {
+  text-align: left;
 }
 
 mat-card,

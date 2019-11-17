@@ -1,14 +1,9 @@
-mat-grid-tile.dark {
-  background: darkgrey no-repeat center;
-  background-size: contain;
-  transition: all .2s ease-in-out;
-  transform: scale(0.8);
-  box-shadow: 8px 8px 0px rgba(0,0,0,.2),
-  0 2px 2px 0 rgba(0,0,0,.14),
-  0 3px 1px -2px rgba(0,0,0,.12);
+@font-face {
+  font-family: "new font";
+  src: url('../../assets/images/horseshoeslemonade.ttf');
 }
 
-mat-grid-tile.clair {
+mat-grid-tile.grid {
   background: grey no-repeat center;
   background-size: contain;
   transition: all .2s ease-in-out;
@@ -16,17 +11,16 @@ mat-grid-tile.clair {
   box-shadow: 8px 8px 0px rgba(0,0,0,.2),
   0 2px 2px 0 rgba(0,0,0,.14),
   0 3px 1px -2px rgba(0,0,0,.12);
+
+}
+
+.font {
+  font-family: "new font";
+  font-size: 200px;
 }
 
 
-mat-grid-tile.dark:hover {
-  transform: scale(0.9);
-  box-shadow: 0 11px 15px -7px rgba(0,0,0,.2),
-  0 24px 38px 3px rgba(0,0,0,.14),
-  0 9px 46px 8px rgba(0,0,0,.12);
-}
-
-mat-grid-tile.clair:hover {
+mat-grid-tile.grid:hover {
   transform: scale(0.9);
   box-shadow: 0 11px 15px -7px rgba(0,0,0,.2),
   0 24px 38px 3px rgba(0,0,0,.14),
