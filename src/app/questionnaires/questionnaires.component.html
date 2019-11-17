@@ -1,12 +1,6 @@
 <section class="text-center">
-<div *ngFor="let questionnaire of questionnaires" class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">{{questionnaire.title}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Niveau : {{questionnaire.level}}</h6>
-    <p class="card-text">Catégorie : {{questionnaire.category}}</p>
-    <a [routerLink]="['/voirQuizz', questionnaire.id]" class="card-link"><span>Voir</span></a>
-    <a href="#" class="card-link">Supprimer</a>
-  </div>
+<div *ngFor="let questionnaire of questionnaires" class="card">
+ <app-quiz [questionnaire]="questionnaire"></app-quiz>
 </div>
 
 <button type="button" class="btn btn-success" (click)="showDialog()">Creer un questionnaire</button>
