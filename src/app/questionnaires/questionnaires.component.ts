@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {QuestionnaireService} from '../services/questionnaire.service';
-import {Questionnaire} from '../interfaces/questionnaire';
+import {Questionnaire} from '../shared/interfaces/questionnaire';
 import {DialogQuestionnaireComponent} from '../dialog-questionnaire/dialog-questionnaire.component';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {DialogCategoryComponent} from '../dialog-category/dialog-category.component';

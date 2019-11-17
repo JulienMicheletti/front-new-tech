@@ -4,6 +4,7 @@ import {CategoriesComponent} from './categories/categories.component';
 import {HomeComponent} from './home/home.component';
 import {QuestionnairesComponent} from './questionnaires/questionnaires.component';
 import {FormQuestionnaireComponent} from './form-questionnaire/form-questionnaire.component';
+import {QuestionnaireComponent} from './questionnaire/questionnaire.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'categories', component: CategoriesComponent },
   { path: 'questionnaires', component: QuestionnairesComponent },
   { path: 'ajouterQuestionnaire', component: FormQuestionnaireComponent },
+  { path: 'voirQuizz/:id', component: QuestionnaireComponent },
 
 ];
 

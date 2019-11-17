@@ -48,12 +48,11 @@ import { DialogQuestionnaireComponent } from './dialog-questionnaire/dialog-ques
     QuizComponent,
     QuestionnaireComponent,
     QuestionnairesComponent,
-    QuestionnairesComponent,
     Sidenav,
     FormQuestionnaireComponent,
     DialogQuestionnaireComponent,
   ],
-  entryComponents: [ DialogCategoryComponent, Sidenav, DialogQuestionnaireComponent ],
+  entryComponents: [ DialogCategoryComponent, DialogQuestionnaireComponent ],
 
   imports: [
     HttpClientModule,
@@ -85,6 +84,7 @@ import { DialogQuestionnaireComponent } from './dialog-questionnaire/dialog-ques
 
   ],
   providers: [{ provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

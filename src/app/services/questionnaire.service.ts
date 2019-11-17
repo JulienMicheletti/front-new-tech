@@ -4,7 +4,7 @@ import {
   EntityCollectionServiceBase,
   EntityCollectionServiceElementsFactory
 } from '@ngrx/data';
-import { Questionnaire } from '../interfaces/questionnaire';
+import { Questionnaire } from '../shared/interfaces/questionnaire';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../config/environment';
@@ -26,4 +26,14 @@ export class QuestionnaireService extends EntityCollectionServiceBase<Questionna
       `${environment.apiUrl}/questionnaires`
     );
   }
+
+  getById(id: string | number): Observable<Questionnaire> {
+    return super.getByKey(id).pipe(map(questionnaire => this.mapQuestionnaire(questionnaire)));
+  }
+
+
+  private mapQuestionnaire(quest: Questionnaire): Questionnaire {
+    return { ...quest};
+  }
+
 }

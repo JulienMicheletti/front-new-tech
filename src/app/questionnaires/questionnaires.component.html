@@ -4,7 +4,7 @@
     <h5 class="card-title">{{questionnaire.title}}</h5>
     <h6 class="card-subtitle mb-2 text-muted">Niveau : {{questionnaire.level}}</h6>
     <p class="card-text">Catégorie : {{questionnaire.category}}</p>
-    <a href="#" class="card-link">Voir</a>
+    <a [routerLink]="['/voirQuizz', questionnaire.id]" class="card-link"><span>Voir</span></a>
     <a href="#" class="card-link">Supprimer</a>
   </div>
 </div>

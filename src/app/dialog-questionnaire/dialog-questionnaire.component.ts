@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {Questionnaire} from '../interfaces/questionnaire';
+import {Questionnaire} from '../shared/interfaces/questionnaire';
 import {DialogCategoryComponent} from '../dialog-category/dialog-category.component';
 
 @Component({
@@ -19,7 +19,7 @@ export class DialogQuestionnaireComponent implements OnInit {
   /**
    * Returns person passed in dialog open
    */
-  get category(): Questionnaire {
+  get questionnaire(): Questionnaire {
     return this._questionnaire;
   }
 
