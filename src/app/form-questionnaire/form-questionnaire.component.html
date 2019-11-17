@@ -2,7 +2,7 @@
 <mat-dialog-content>
   <form novalidate [formGroup]="questionnaireForm">
     <mat-form-field class="full-width" [class.mgb15]="questionnaireForm.get('title').dirty">
-      <input primary matInput placeholder="titre du questionnaire" formControlName="title" required name="title" />
+      <input primary matInput placeholder="Titre du questionnaire" formControlName="title" required name="title" />
       <mat-error *ngIf="questionnaireForm.get('title').dirty && questionnaireForm.get('title').hasError('required')">
         Title est <strong>requis</strong>
       </mat-error>
@@ -27,34 +27,59 @@
     </mat-form-field>
     <hr />
     <!-- section Questions -->
-    <h6>Les questions a definir</h6>
+    <h6 class="text-center text-primary">Les questions à définir</h6>
     <div formArrayName="questionnaire"
          *ngFor="let question of questionnaireForm.get('questionnaire').controls; let questionnaireIndex = index;">
       <div [formGroupName]="questionnaireIndex">
+        <hr/>
         <h6>Question {{questionnaireIndex}}</h6>
         <div *ngIf="questionnaireIndex > 0">
-          <button mat-raised-button color="primary" type="button" (click)="deleteQuestion(questionnaireIndex)">Delete question</button>
+          <div class="text-left">
+            <button mat-raised-button color="warn" type="button" (click)="deleteQuestion(questionnaireIndex)">
+              Supprimer la question
+              <i class="material-icons">
+                delete_sweep
+              </i>
+            </button>
+          </div>
         </div>
         <mat-form-field class="full-width">
-          <input matInput placeholder="title" formControlName="title" name="title"/>
+          <input matInput placeholder="Question" formControlName="title" name="title"/>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="response" formControlName="response" name="response"/>
+          <input matInput placeholder="Réponse à la question" formControlName="response" name="response"/>
         </mat-form-field>
         <!-- section Choices -->
-        <button mat-icon-button color="accent" type="button" (click)="addChoice(question)">Ajouter un choix de réponse</button>
+        <div class="text-right">
+          <button mat-raised-button color="primary" type="button" (click)="addChoice(question)">
+            Ajouter un choix de réponse
+            <i class="material-icons">playlist_add</i>
+          </button>
+        </div>
         <div formArrayName="choices">
           <div *ngFor="let choice of question.get('choices').controls; let choiceIndex = index" [formGroupName]="choiceIndex">
             <mat-form-field class="full-width">
-              <input matInput formControlName="choice" placeholder="Reponse potentiel">
+              <input matInput formControlName="choice" placeholder="Réponse potentiel">
             </mat-form-field>
-            <button mat-icon-button color="accent" type="button" (click)="deleteChoice(question, choiceIndex)">Suprimer le choix</button>
+            <div class="text-right">
+              <button mat-raised-button color="accent" type="button" (click)="deleteChoice(question, choiceIndex)">
+                Supprimer le choix
+                <i class="material-icons">
+                  delete_outline
+                </i>
+              </button>
+            </div>
           </div>
         </div>
         <!-- fin section Choices -->
       </div>
     </div>
-    <button mat-icon-button color="accent" type="button" (click)="addQuestion()">Ajouter une question</button>
+    <button mat-raised-button color="warn" type="button" (click)="addQuestion()">
+      Ajouter une question
+      <i class="material-icons">
+        add
+      </i>
+    </button>
 
   </form>
 </mat-dialog-content>
