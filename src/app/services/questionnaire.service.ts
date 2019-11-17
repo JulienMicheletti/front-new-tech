@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
+import {
+  EntityActionOptions,
+  EntityCollectionServiceBase,
+  EntityCollectionServiceElementsFactory
+} from '@ngrx/data';
+import { Questionnaire } from '../shared/interfaces/questionnaire';
+import {Observable} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Questionnaire } from '../interfaces/questionnaire';
 import { defaultIfEmpty, filter, map } from 'rxjs/operators';
-import {environment} from "../../environments/environment";
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -101,4 +106,5 @@ export class QuestionnairesService {
   private _options(headerList: object = {}): any {
     return { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' }, headerList)) };
   }
+
 }

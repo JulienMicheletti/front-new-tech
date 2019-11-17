@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
-import {Questionnaire} from "../interfaces/questionnaire";
+import {Questionnaire} from "../shared/interfaces/questionnaire";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {DialogQuestionnaireComponent} from "../dialog-questionnaire/dialog-questionnaire.component";
 import {QuestionnairesService} from "../services/questionnaire.service";
@@ -12,9 +12,6 @@ import {filter, flatMap} from "rxjs/operators";
   styleUrls: ['./questionnaires.component.css']
 })
 export class QuestionnairesComponent implements OnInit {
-
-  loading$: Observable<boolean>;
-  questionnaire$: Observable<Questionnaire[]>;
 
   // private property to store dialog reference
   private _questionnaireDialog: MatDialogRef<DialogQuestionnaireComponent>;

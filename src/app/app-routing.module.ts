@@ -9,10 +9,10 @@ import {QuestionnairesComponent} from "./questionnaires/questionnaires.component
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'questionnaires', component: QuestionnairesComponent },
   { path: 'questionnaire', component: QuestionnaireComponent},
   { path: 'questionnaires', component: QuestionnairesComponent },
   { path: 'ajouterQuestionnaire', component: FormQuestionnaireComponent },
+  { path: 'voirQuizz/:id', component: QuestionnaireComponent },
 
 ];
 

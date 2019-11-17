@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {QuestionnairesService} from '../services/questionnaire.service';
+import {flatMap, map} from 'rxjs/operators';
+import {Questionnaire} from '../shared/interfaces/questionnaire';
 import {QUESTIONNAIRES} from "../_static/questionnaires";
 
 @Component({
@@ -8,14 +12,12 @@ import {QUESTIONNAIRES} from "../_static/questionnaires";
 })
 export class QuestionnaireComponent implements OnInit {
 
-  // private property to store questionnaire value
-  private _questionnaire: any;
+  private _questionnaire: Questionnaire;
 
-  /**
-   * Component constructor
-   */
   constructor() {
+    // this._questionnaire = null;
     this._questionnaire = QUESTIONNAIRES[ 0 ];
+
   }
 
   /**
@@ -28,7 +30,8 @@ export class QuestionnaireComponent implements OnInit {
   /**
    * OnInit implementation
    */
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
+
 
 }

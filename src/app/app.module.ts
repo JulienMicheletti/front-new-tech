@@ -78,6 +78,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 
   ],
   providers: [{ provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

@@ -2,7 +2,7 @@ import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/c
 import {Router} from '@angular/router';
 import {of} from 'rxjs';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {Questionnaire} from "../../interfaces/questionnaire";
+import {Questionnaire} from "../interfaces/questionnaire";
 
 @Component({
   selector: 'app-quiz',

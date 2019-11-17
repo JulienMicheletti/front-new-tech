@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Questionnaire} from "../interfaces/questionnaire";
+import {Questionnaire} from "../shared/interfaces/questionnaire";
 
 @Component({
   selector: 'app-form-questionnaire',
@@ -50,7 +50,7 @@ export class FormQuestionnaireComponent implements OnInit {
 
   private createChoice() {
     return this._formBuilder.group({
-      choices: ['', Validators.required]
+      choice: ['', Validators.required]
     });
   }
 
