@@ -1,14 +1,14 @@
-<mat-card class="mat-whiteframe-2dp">
-  <mat-card-header>
-    <mat-card-title>{{questionnaire.title}}</mat-card-title>
-    <mat-card-subtitle>{{questionnaire.level}}</mat-card-subtitle>
-  </mat-card-header>
+<mat-card class="my-card">
+  <img mat-card-image  src="https://www.medreps.com/medical-sales-careers/wp-content/uploads/Person-thinking.jpg">
   <mat-card-actions>
+    <mat-card-header>
+      <mat-card-title>{{questionnaire.title}}</mat-card-title>
+      <mat-card-subtitle>Difficulté {{questionnaire.level}}</mat-card-subtitle>
+    </mat-card-header>
     <button mat-button>Jouer</button>
-    <button mat-button>Statistiques</button>
   </mat-card-actions>
   <mat-card-footer>
-    <button mat-button>Modifier</button>
-    <button mat-button>Supprimer</button>
+    <button mat-button><mat-icon svgIcon="icon-delete"></mat-icon></button>
+    <button mat-button> <mat-icon svgIcon="icon-edit"></mat-icon></button>
   </mat-card-footer>
 </mat-card>
