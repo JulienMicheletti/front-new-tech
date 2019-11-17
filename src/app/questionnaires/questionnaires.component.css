@@ -1,0 +1,11 @@
+section {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background-color: #D5D6D2;
+  border: none;
+}
