@@ -16,7 +16,7 @@ export class QuestionnaireComponent implements OnInit {
 
   constructor() {
     // this._questionnaire = null;
-    this._questionnaire = QUESTIONNAIRES[ 0 ];
+
 
   }
 

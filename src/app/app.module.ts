@@ -37,6 +37,9 @@ import { UpdateQuestionnaireComponent } from './update-questionnaire/update-ques
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
+import { StatisticsComponent } from './shared/statistics/statistics.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
 
 
 @NgModule({
@@ -50,6 +53,7 @@ import {MatRadioModule} from "@angular/material/radio";
     FormQuestionnaireComponent,
     DialogQuestionnaireComponent,
     UpdateQuestionnaireComponent,
+    StatisticsComponent,
   ],
   entryComponents: [ DialogQuestionnaireComponent ],
 
@@ -82,6 +86,8 @@ import {MatRadioModule} from "@angular/material/radio";
     MatOptionModule,
     MatSelectModule,
     MatRadioModule,
+    MatTableModule,
+    MatSortModule,
 
 
   ],

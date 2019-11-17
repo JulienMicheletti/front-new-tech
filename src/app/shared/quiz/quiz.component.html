@@ -7,6 +7,7 @@
     </mat-card-header>
   <mat-card-actions class="action">
     <button mat-button [routerLink]="['/voirQuizz', questionnaire.id]">Jouer</button>
+    <button mat-button [routerLink]="['/statistics', questionnaire.id]">Statistiques</button>
   </mat-card-actions>
   <mat-card-footer>
     <button mat-button [routerLink]="['/editQuizz', questionnaire.id]"><mat-icon svgIcon="icon-edit"></mat-icon></button>
