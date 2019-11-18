@@ -13,6 +13,9 @@ export class Player {
 
 export class Choice {
   public readonly choice: string;
+  constructor(choix: string) {
+    this.choice = choix;
+  }
 }
 
 export class Question {
