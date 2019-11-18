@@ -3,7 +3,7 @@ export class Questionnaire {
   public readonly title: string;
   public readonly level: string;
   public readonly category: string;
-  public readonly player: Player[];
+  public readonly players: Player[];
   public readonly questionnaire: Question[];
 }
 export class Player {

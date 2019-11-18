@@ -16,15 +16,13 @@ import {MatSort} from "@angular/material/sort";
 export class StatisticsComponent implements OnInit {
   // tableau de questionnaires
   private _questionnaire: Questionnaire;
+  private dataSource: Player[];
   private _players: Player[];
   displayedColumns: string[] = ['pseudo', 'score'];
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-  private dataSource: MatTableDataSource<unknown>;
 
 
   constructor(private questionnaireService: QuestionnairesService, private _dialog: MatDialog,  private _route: ActivatedRoute) {
-    this._players = [{pseudo: 'Julien', score:100}];
-    this.dataSource = new MatTableDataSource(this._players);
+
   }
 
   getQuestionnaire(id: string): Observable<Questionnaire>  {
@@ -33,14 +31,14 @@ export class StatisticsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.dataSource.sort = this.sort;
-    merge(
+      merge(
       this._route.params.pipe(
         filter(params => !!params.id),
         flatMap(params => this.questionnaireService.fetchOne(params.id)),
       ),
     )
       .subscribe((questionnaire: any) => this._questionnaire = questionnaire);
+      this.dataSource = this._questionnaire.players;
   }
 
 }
