@@ -5,7 +5,7 @@ import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {DialogQuestionnaireComponent} from "../dialog-questionnaire/dialog-questionnaire.component";
 import {QuestionnairesService} from "../services/questionnaire.service";
 import {filter, flatMap, tap} from "rxjs/operators";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Logger} from "tslint/lib/runner";
 
 @Component({
@@ -21,7 +21,7 @@ export class QuestionnairesComponent implements OnInit {
   // tableau de questionnaires
   private _questionnaires: Questionnaire[];
 
-  constructor(private questionnaireService: QuestionnairesService, private _dialog: MatDialog,  private _route: ActivatedRoute) {
+  constructor(private questionnaireService: QuestionnairesService, private _dialog: MatDialog,  private _route: ActivatedRoute, private router: Router) {
     this._questionnaires = [];
   }
 
@@ -58,7 +58,7 @@ export class QuestionnairesComponent implements OnInit {
         flatMap(_ => this.questionnaireService.fetch()),
       )
     )
-      .subscribe((questionnaires: any) => this._questionnaires = questionnaires);
+      .subscribe((questionnaires: any) => this._questionnaires = questionnaires, error => {this.router.navigate(['/home'])});
   }
 
 
