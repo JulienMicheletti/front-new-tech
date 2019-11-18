@@ -40,6 +40,7 @@ import {MatRadioModule} from "@angular/material/radio";
 import { StatisticsComponent } from './shared/statistics/statistics.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 @NgModule({
@@ -88,6 +89,7 @@ import {MatSortModule} from "@angular/material/sort";
     MatRadioModule,
     MatTableModule,
     MatSortModule,
+    MatProgressSpinnerModule,
 
 
   ],

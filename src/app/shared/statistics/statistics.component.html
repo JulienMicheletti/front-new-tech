@@ -1,3 +1,4 @@
+
 <table mat-table [dataSource]="_questionnaire.players" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
@@ -19,6 +20,16 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
+<div class="centrer">
+<h2 style="margin-top: 40px">Moyenne des réponses correctes</h2>
+
+<mat-progress-spinner
+  class="example-margin text-center"
+  color="primary"
+  mode="determinate"
+  value=60>
+</mat-progress-spinner>
+</div>
 
 <!-- Copyright 2019 Google LLC. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
