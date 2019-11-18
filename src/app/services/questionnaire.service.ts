@@ -25,6 +25,12 @@ export class QuestionnairesService {
       title: 'test',
       level: 'Facile',
       category: 'Animaux',
+      player: [
+        {
+          pseudo: "pseudo",
+          score: 20,
+        }
+      ],
       questionnaire: [
         {
           title: 'Question facile',

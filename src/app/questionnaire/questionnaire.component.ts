@@ -3,7 +3,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {QuestionnairesService} from '../services/questionnaire.service';
 import {flatMap, map} from 'rxjs/operators';
 import {Questionnaire} from '../shared/interfaces/questionnaire';
-import {QUESTIONNAIRES} from "../_static/questionnaires";
 
 @Component({
   selector: 'app-questionnaire',

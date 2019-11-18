@@ -3,7 +3,12 @@ export class Questionnaire {
   public readonly title: string;
   public readonly level: string;
   public readonly category: string;
+  public readonly player: Player[];
   public readonly questionnaire: Question[];
+}
+export class Player {
+  pseudo: string;
+  score: number;
 }
 
 export class Choice {
