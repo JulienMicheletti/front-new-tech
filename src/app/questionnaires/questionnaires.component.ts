@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {merge, Observable} from "rxjs";
-import {Questionnaire} from "../shared/interfaces/questionnaire";
+import {Choice, Questionnaire} from '../shared/interfaces/questionnaire';
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {DialogQuestionnaireComponent} from "../dialog-questionnaire/dialog-questionnaire.component";
 import {QuestionnairesService} from "../services/questionnaire.service";

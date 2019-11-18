@@ -1,13 +1,26 @@
-<section class="text-center">
+<section class="container text-center">
 
   <mat-card>
     <mat-card-title>{{questionnaire.title}}</mat-card-title>
     <mat-card-subtitle><u>Niveau</u> : {{questionnaire.level}} &nbsp;&nbsp;&nbsp; <u>Catégorie</u> : {{questionnaire.category}}</mat-card-subtitle>
     <mat-card-content>
       <section>
-        <h6 *ngFor="let question of questionnaire.questionnaire">{{question.title}}</h6>
+        <div class="m-4" *ngFor="let question of questionnaire.questionnaire; let i = index">
+          <hr />
+          <div class="row">
+            <label class="h6">{{question.title}} : </label>
+          </div>
+          <div class="row">
+            <mat-radio-group class="example-radio-group">
+              <mat-radio-button *ngFor="let choice of question.choices" [value]="choice">{{choice.choice}}</mat-radio-button><br>
+            </mat-radio-group>
+          </div>
+        </div>
       </section>
+      <button mat-raised-button color="warn" type="button" (click)="onSave()">Valider</button>
     </mat-card-content>
+    <mat-card-footer>
+    </mat-card-footer>
   </mat-card>
 
 </section>

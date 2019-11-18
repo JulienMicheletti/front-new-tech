@@ -4,7 +4,7 @@ import {MatDialog, MatDialogRef} from '@angular/material';
 import {ActivatedRoute, Router} from '@angular/router';
 import {QuestionnairesService} from '../services/questionnaire.service';
 import {filter, flatMap, map} from 'rxjs/operators';
-import {Questionnaire} from '../shared/interfaces/questionnaire';
+import {Choice, Questionnaire} from '../shared/interfaces/questionnaire';
 
 @Component({
   selector: 'app-update-questionnaire',
@@ -42,10 +42,14 @@ export class UpdateQuestionnaireComponent implements OnInit {
         this._questionnairesDialog.afterClosed()
           .pipe(
             filter(_ => !!_),
-            flatMap(_ => this._questionnairesService.update(_, idQuest))
+            flatMap(_ => this.update(_, idQuest))
           )
           .subscribe(() => undefined, (err) => console.log(err), () => this._router.navigate([ '/questionnaires' ]));
       });
+  }
+
+  update(questionnaire: Questionnaire, idQuestionnaire: string) {
+    return this._questionnairesService.update(questionnaire, idQuestionnaire);
   }
 
 }
