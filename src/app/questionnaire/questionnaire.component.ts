@@ -14,16 +14,21 @@ export class QuestionnaireComponent implements OnInit {
 
   private _questionnaire: Questionnaire;
 
-  constructor() {
-    // this._questionnaire = null;
-    this._questionnaire = QUESTIONNAIRES[ 0 ];
-
+  constructor(private _route: ActivatedRoute, private _questionnairesService: QuestionnairesService) {
+    // this._questionnaire = QUESTIONNAIRES[ 0 ];
+    this._route.params
+      .pipe(
+        map((params: any) => params.id),
+        flatMap((id: string) => this._questionnairesService.fetchOne(id))
+      )
+      .subscribe((quizz: Questionnaire) => this._questionnaire = quizz);
   }
+
 
   /**
    * Returns private property _questionnaire
    */
-  get questionnaire(): any {
+  get questionnaire(): Questionnaire {
     return this._questionnaire;
   }
 
