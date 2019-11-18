@@ -6,6 +6,7 @@ import {FormQuestionnaireComponent} from './form-questionnaire/form-questionnair
 import {QuestionnairesComponent} from "./questionnaires/questionnaires.component";
 import {UpdateQuestionnaireComponent} from './update-questionnaire/update-questionnaire.component';
 import {StatisticsComponent} from "./shared/statistics/statistics.component";
+import {ScoreboardComponent} from "./shared/scoreboard/scoreboard.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,7 +17,9 @@ const routes: Routes = [
   { path: 'ajouterQuestionnaire', component: FormQuestionnaireComponent },
   { path: 'voirQuizz/:id', component: QuestionnaireComponent },
   { path: 'editQuizz/:id', component: UpdateQuestionnaireComponent },
-  { path: 'statistics/:id', component: StatisticsComponent },
+  { path: 'scoreboard/:id', component: ScoreboardComponent },
+  { path: 'statistics', component: StatisticsComponent },
+
 ];
 
 @NgModule({

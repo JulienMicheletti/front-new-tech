@@ -40,7 +40,10 @@ import {MatRadioModule} from "@angular/material/radio";
 import { StatisticsComponent } from './shared/statistics/statistics.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {ChartsModule} from "ng2-charts";
+import { ScoreboardComponent } from './shared/scoreboard/scoreboard.component';
 
 
 @NgModule({
@@ -55,6 +58,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     DialogQuestionnaireComponent,
     UpdateQuestionnaireComponent,
     StatisticsComponent,
+    ScoreboardComponent,
   ],
   entryComponents: [ DialogQuestionnaireComponent ],
 
@@ -64,6 +68,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     AppRoutingModule,
     MatListModule,
     BrowserAnimationsModule,
+    MDBBootstrapModule.forRoot(),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     EntityDataModule.forRoot(entityConfig),
@@ -90,6 +95,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatTableModule,
     MatSortModule,
     MatProgressSpinnerModule,
+    ChartsModule,
 
 
   ],
