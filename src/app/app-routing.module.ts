@@ -5,7 +5,6 @@ import {QuestionnaireComponent} from "./questionnaire/questionnaire.component";
 import {FormQuestionnaireComponent} from './shared/form-questionnaire/form-questionnaire.component';
 import {QuestionnairesComponent} from "./questionnaires/questionnaires.component";
 import {UpdateQuestionnaireComponent} from './shared/update-questionnaire/update-questionnaire.component';
-import {StatisticsComponent} from "./statistics/statistics.component";
 import {ScoreboardComponent} from "./scoreboard/scoreboard.component";
 
 const routes: Routes = [
@@ -18,7 +17,6 @@ const routes: Routes = [
   { path: 'voirQuizz/:id', component: QuestionnaireComponent },
   { path: 'editQuizz/:id', component: UpdateQuestionnaireComponent },
   { path: 'scoreboard/:id', component: ScoreboardComponent },
-  { path: 'statistics', component: StatisticsComponent },
 
 ];
 

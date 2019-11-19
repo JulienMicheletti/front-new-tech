@@ -31,13 +31,10 @@ import { UpdateQuestionnaireComponent } from './shared/update-questionnaire/upda
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
-import { StatisticsComponent } from './statistics/statistics.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { DialogPseudoComponent } from './shared/dialog-pseudo/dialog-pseudo.component';
-import {ChartsModule} from "ng2-charts";
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 
 
@@ -53,7 +50,6 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
     FormQuestionnaireComponent,
     DialogQuestionnaireComponent,
     UpdateQuestionnaireComponent,
-    StatisticsComponent,
     DialogPseudoComponent,
     ScoreboardComponent,
   ],
@@ -65,7 +61,6 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
     AppRoutingModule,
     MatListModule,
     BrowserAnimationsModule,
-    MDBBootstrapModule.forRoot(),
     ReactiveFormsModule,
     MatFormFieldModule,
     MatToolbarModule,
@@ -89,7 +84,6 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
     MatSortModule,
     MatProgressSpinnerModule,
     FormsModule,
-    ChartsModule,
   ],
   bootstrap: [AppComponent],
 
