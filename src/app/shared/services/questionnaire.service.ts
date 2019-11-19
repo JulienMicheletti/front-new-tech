@@ -4,11 +4,11 @@ import {
   EntityCollectionServiceBase,
   EntityCollectionServiceElementsFactory
 } from '@ngrx/data';
-import { Questionnaire } from '../shared/interfaces/questionnaire';
+import {Player, Questionnaire} from '../interfaces/questionnaire';
 import {Observable} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {defaultIfEmpty, filter, map, tap} from 'rxjs/operators';
-import {environment} from '../../environments/environment';
+import {environment} from '../../../environments/environment';
 import {Logger} from "tslint/lib/runner";
 
 @Injectable({

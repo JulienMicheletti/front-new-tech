@@ -12,6 +12,7 @@ export const environment = {
       allQuestionnaires: '/questionnaires',
       oneQuestionnaire: '/questionnaires/:id',
       allCategoryQuestionnaires: '/questionnaires/category/:category',
+      addPlayer: '/questionnaires/addPlayer/:id',
     }
   }
 };

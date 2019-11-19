@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {QuestionnaireComponent} from "./questionnaire/questionnaire.component";
-import {FormQuestionnaireComponent} from './form-questionnaire/form-questionnaire.component';
+import {FormQuestionnaireComponent} from './shared/form-questionnaire/form-questionnaire.component';
 import {QuestionnairesComponent} from "./questionnaires/questionnaires.component";
-import {UpdateQuestionnaireComponent} from './update-questionnaire/update-questionnaire.component';
-import {StatisticsComponent} from "./shared/statistics/statistics.component";
+import {UpdateQuestionnaireComponent} from './shared/update-questionnaire/update-questionnaire.component';
+import {StatisticsComponent} from "./statistics/statistics.component";
+import {ScoreboardComponent} from "./scoreboard/scoreboard.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,7 +17,9 @@ const routes: Routes = [
   { path: 'ajouterQuestionnaire', component: FormQuestionnaireComponent },
   { path: 'voirQuizz/:id', component: QuestionnaireComponent },
   { path: 'editQuizz/:id', component: UpdateQuestionnaireComponent },
-  { path: 'statistics/:id', component: StatisticsComponent },
+  { path: 'scoreboard/:id', component: ScoreboardComponent },
+  { path: 'statistics', component: StatisticsComponent },
+
 ];
 
 @NgModule({

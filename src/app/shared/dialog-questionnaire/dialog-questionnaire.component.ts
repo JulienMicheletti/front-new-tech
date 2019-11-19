@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {Questionnaire} from '../shared/interfaces/questionnaire';
+import {Questionnaire} from '../interfaces/questionnaire';
 
 @Component({
   selector: 'app-dialog-questionnaire',

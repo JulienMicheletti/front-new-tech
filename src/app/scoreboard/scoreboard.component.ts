@@ -1,24 +1,23 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {MatDialog, MatDialogRef} from "@angular/material/dialog";
-import {Player, Questionnaire} from "../interfaces/questionnaire";
-import {QuestionnairesService} from "../../services/questionnaire.service";
+import { Component, OnInit } from '@angular/core';
+import {Questionnaire} from "../shared/interfaces/questionnaire";
+import {QuestionnairesService} from "../shared/services/questionnaire.service";
+import {MatDialog} from "@angular/material/dialog";
+
 import {ActivatedRoute, Router} from "@angular/router";
 import {merge, Observable} from "rxjs";
 import {filter, flatMap} from "rxjs/operators";
-import {MatTableDataSource} from "@angular/material/table";
-import {MatSort} from "@angular/material/sort";
 
 @Component({
-  selector: 'app-statistics',
-  templateUrl: './statistics.component.html',
-  styleUrls: ['./statistics.component.css']
+  selector: 'app-scoreboard',
+  templateUrl: './scoreboard.component.html',
+  styleUrls: ['./scoreboard.component.css']
 })
-export class StatisticsComponent implements OnInit {
+export class ScoreboardComponent implements OnInit {
   // tableau de questionnaires
   private _questionnaire: Questionnaire;
-  private dataSource: Player[];
-  private _players: Player[];
+  public chartType: string = 'doughnut';
   displayedColumns: string[] = ['pseudo', 'score'];
+  tab: number[];
 
   constructor(private questionnaireService: QuestionnairesService, private _dialog: MatDialog,  private _route: ActivatedRoute, private router: Router) {
 
@@ -28,15 +27,18 @@ export class StatisticsComponent implements OnInit {
     return this.questionnaireService.fetchOne(id);
   }
 
-
   ngOnInit() {
-      merge(
+    merge(
       this._route.params.pipe(
         filter(params => !!params.id),
         flatMap(params => this.questionnaireService.fetchOne(params.id)),
       ),
     )
       .subscribe((questionnaire: any) => this._questionnaire = questionnaire, error => {this.router.navigate(['/home'])});
+  }
+
+  questionnaire(): Questionnaire {
+    return this._questionnaire;
   }
 
 }

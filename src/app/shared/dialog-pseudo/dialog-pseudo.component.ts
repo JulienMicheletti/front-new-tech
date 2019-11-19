@@ -1,7 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Questionnaire} from '../interfaces/questionnaire';
-import {DialogQuestionnaireComponent} from '../../dialog-questionnaire/dialog-questionnaire.component';
 import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 
 @Component({
@@ -17,7 +16,7 @@ export class DialogPseudoComponent implements OnInit {
   /**
    * Component constructor
    */
-  constructor(private _dialogRef: MatDialogRef<DialogQuestionnaireComponent>, @Inject(MAT_DIALOG_DATA) private _pseudo: string, private _formBuilder: FormBuilder) {
+  constructor(private _dialogRef: MatDialogRef<DialogPseudoComponent>, @Inject(MAT_DIALOG_DATA) private _pseudo: string, private _formBuilder: FormBuilder) {
     this.initForm();
   }
 

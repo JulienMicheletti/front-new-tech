@@ -1,0 +1,13 @@
+
+<div class="section">
+  <canvas mdbChart class="cam"
+          [data]="[this._sport, this._science, this._cinema, this._musique]"
+          [chartType]="this.chartType"
+          [labels]="chartLabels"
+          [colors]="chartColors"
+          [options]="chartOptions"
+          [legend]="true"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+  </canvas>
+</div>

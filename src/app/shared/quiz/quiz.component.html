@@ -7,7 +7,7 @@
     </mat-card-header>
   <mat-card-actions>
     <button mat-raised-button color="warn" class="action" [routerLink]="['/voirQuizz', questionnaire.id]">Jouer</button>
-    <button mat-raised-button color="primary" class="action" [routerLink]="['/statistics', questionnaire.id]">Statistiques</button>
+    <button mat-raised-button color="primary" class="action" [routerLink]="['/scoreboard', questionnaire.id]">Scores</button>
   </mat-card-actions>
   <mat-card-footer>
     <button mat-button [routerLink]="['/editQuizz', questionnaire.id]"><mat-icon svgIcon="icon-edit"></mat-icon></button>

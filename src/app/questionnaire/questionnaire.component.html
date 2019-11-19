@@ -4,7 +4,7 @@
     <mat-card-title>{{questionnaire.title}}</mat-card-title>
     <mat-card-subtitle><u>Niveau</u> : {{questionnaire.level}} &nbsp;&nbsp;&nbsp; <u>Catégorie</u> : {{questionnaire.category}}</mat-card-subtitle>
     <mat-card-content>
-      <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f.value)">
         <section>
           <div class="m-4" *ngFor="let question of questionnaire.questionnaire; let indexQuestion = index">
             <hr />
@@ -13,7 +13,7 @@
             </div>
             <div class="row">
               <mat-radio-group class="example-radio-group">
-                <mat-radio-button *ngFor="let choice of question.choices" ngDefaultControl ngModel name="choix{{indexQuestion}}" [value]="choice.choice" (click)="ajouterReponse(choice.choice)" required> {{ choice.choice }}</mat-radio-button>
+                <mat-radio-button *ngFor="let choice of question.choices" ngDefaultControl ngModel name="choix{{indexQuestion}}" [value]="choice.choice" required> {{ choice.choice }}</mat-radio-button>
               </mat-radio-group>
             </div>
           </div>

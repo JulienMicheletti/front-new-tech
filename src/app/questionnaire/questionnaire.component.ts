@@ -1,12 +1,12 @@
 import {Component, forwardRef, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {QuestionnairesService} from '../services/questionnaire.service';
+import {QuestionnairesService} from '../shared/services/questionnaire.service';
 import {filter, flatMap, map} from 'rxjs/operators';
-import {Choice, Questionnaire} from '../shared/interfaces/questionnaire';
+import {Choice, Player, Questionnaire} from '../shared/interfaces/questionnaire';
 import {Form, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, NgForm} from '@angular/forms';
-import {DialogQuestionnaireComponent} from '../dialog-questionnaire/dialog-questionnaire.component';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {DialogPseudoComponent} from '../shared/dialog-pseudo/dialog-pseudo.component';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-questionnaire',
@@ -23,10 +23,7 @@ export class QuestionnaireComponent implements OnInit {
   // private property to store dialog reference
   private _pseudoDialog: MatDialogRef<DialogPseudoComponent>;
 
-  // tableau dans lequel on enregistre les reponses du formulaires
-  private _reponses: string[];
-
-  constructor(private _route: ActivatedRoute, private _dialog: MatDialog, private _questionnairesService: QuestionnairesService, private _formBuilder: FormBuilder, private router: Router) {
+  constructor(private _route: ActivatedRoute, private _dialog: MatDialog, private _questionnairesService: QuestionnairesService,private _formBuilder: FormBuilder, private router: Router) {
     // this._questionnaire = QUESTIONNAIRES[ 0 ];
     this._route.params
       .pipe(
@@ -34,7 +31,6 @@ export class QuestionnaireComponent implements OnInit {
         flatMap((id: string) => this._questionnairesService.fetchOne(id))
       )
       .subscribe((quizz: Questionnaire) => this._questionnaire = this.genererQuizz(quizz)),  () => {this.router.navigate(['/home'])};
-    this._reponses = [];
     this._score = 0;
   }
 
@@ -55,15 +51,15 @@ export class QuestionnaireComponent implements OnInit {
     return this._questionnaire;
   }
 
-  onSubmit(form: NgForm) {
-    for (let i = 0; i < this._reponses.length; i++) {
-      if (this._reponses[i] == this._questionnaire.questionnaire[i].response){
+  onSubmit(tabRep: object) {
+    let i = 0;
+    for (let key in tabRep) {
+      if (tabRep[key] == this._questionnaire.questionnaire[i].response) {
         // +1 quand le resultat est bon
         this._score += 1;
       }
+      i++;
     }
-    console.log(this._score);
-
     this.openModel();
   }
 
@@ -78,13 +74,18 @@ export class QuestionnaireComponent implements OnInit {
 
     this._pseudoDialog.afterClosed().pipe(
       filter(_ => !!_),
-      flatMap(_ => )
-    ).subscribe(() => {this.router.navigate(['/statistics', this.questionnaire.id])});
+      flatMap(_ => this.addPlayer(_))
+    ).subscribe(() => {this.router.navigate(['/scoreboard', this._questionnaire.id])});
   }
 
-
-  ajouterReponse(rep: string) {
-    this._reponses.push(rep);
+  addPlayer(pseudo: string): Observable<any> {
+    let player: Player = {
+      pseudo: pseudo,
+      score: this._score
+    }
+    console.log(player);
+    this._questionnaire.players.push(player);
+    return this._questionnairesService.update(this._questionnaire, this._questionnaire.id);
   }
 
   /**

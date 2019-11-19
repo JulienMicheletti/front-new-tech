@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Questionnaire} from "../shared/interfaces/questionnaire";
+import {Questionnaire} from "../interfaces/questionnaire";
 
 @Component({
   selector: 'app-form-questionnaire',
