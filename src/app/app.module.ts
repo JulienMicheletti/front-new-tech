@@ -4,10 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {Routes} from '@angular/router';
-import {StoreModule} from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import {DefaultDataServiceConfig, EntityDataModule} from '@ngrx/data';
-import { entityConfig } from './shared/entity/entity-metadata';
 import {
   MatButtonModule,
   MatCardModule,
@@ -22,7 +18,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { QuizComponent } from './shared/quiz/quiz.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { QuestionnairesComponent } from './questionnaires/questionnaires.component';
@@ -71,9 +66,6 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
     MatListModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([]),
-    EntityDataModule.forRoot(entityConfig),
     ReactiveFormsModule,
     MatFormFieldModule,
     MatToolbarModule,
@@ -88,7 +80,6 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
     MatTabsModule,
     MatTreeModule,
     MatSidenavModule,
-    NgbModule,
     MatGridListModule,
     MatSidenavModule,
     MatOptionModule,

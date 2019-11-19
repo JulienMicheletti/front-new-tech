@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  EntityActionOptions,
-  EntityCollectionServiceBase,
-  EntityCollectionServiceElementsFactory
-} from '@ngrx/data';
+
 import {Player, Questionnaire} from '../interfaces/questionnaire';
 import {Observable} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
