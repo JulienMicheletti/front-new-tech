@@ -1,0 +1,9 @@
+<form [formGroup]="form">
+  <h5>Nom qui figurera au Hall of Fame</h5>
+  <mat-form-field class="full-width" [class.mgb15]="form.get('pseudo').dirty">
+    <input primary matInput placeholder="pseudo" formControlName="pseudo" required name="pseudo" />
+  </mat-form-field>
+  <mat-dialog-actions>
+    <button mat-button color="primary" type="submit" (click)="onSave(form)">OK</button>
+  </mat-dialog-actions>
+</form>

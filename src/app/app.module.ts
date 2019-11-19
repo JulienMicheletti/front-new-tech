@@ -19,7 +19,7 @@ import {
   MatTreeModule,
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
-import { ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -41,6 +41,7 @@ import { StatisticsComponent } from './shared/statistics/statistics.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { DialogPseudoComponent } from './shared/dialog-pseudo/dialog-pseudo.component';
 
 
 @NgModule({
@@ -55,8 +56,9 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     DialogQuestionnaireComponent,
     UpdateQuestionnaireComponent,
     StatisticsComponent,
+    DialogPseudoComponent,
   ],
-  entryComponents: [ DialogQuestionnaireComponent ],
+  entryComponents: [ DialogQuestionnaireComponent, DialogPseudoComponent ],
 
   imports: [
     HttpClientModule,
@@ -90,8 +92,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatTableModule,
     MatSortModule,
     MatProgressSpinnerModule,
-
-
+    FormsModule,
   ],
   providers: [{ provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }],
   bootstrap: [AppComponent],

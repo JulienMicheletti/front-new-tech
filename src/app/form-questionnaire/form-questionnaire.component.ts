@@ -8,8 +8,8 @@ import {Questionnaire} from "../shared/interfaces/questionnaire";
   styleUrls: ['./form-questionnaire.component.css']
 })
 export class FormQuestionnaireComponent implements OnInit {
-  // private property to store update mode flag
-  private _isUpdateMode: boolean;
+  // private property to store la cétgorie et donner une value au select dans le form
+  private _categorie: string;
   //Formulaire groupe pour le questionnaire
   private _questionnaireForm: FormGroup;
 
@@ -26,18 +26,13 @@ export class FormQuestionnaireComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder) {
     this._submit$ = new EventEmitter<Questionnaire>();
     this._cancel$ = new EventEmitter<void>();
+    this._categorie = 'Sport';
     this.initForm();
   }
 
   ngOnInit() {
   }
 
-  /**
-   * Returns private property _isUpdateMode
-   */
-  get isUpdateMode(): boolean {
-    return this._isUpdateMode;
-  }
 
   initForm() {
     this._questionnaireForm = this._formBuilder.group({
@@ -113,8 +108,9 @@ export class FormQuestionnaireComponent implements OnInit {
 
   ngOnChanges(record) {
     if (record.model && record.model.currentValue) {
-      this._isUpdateMode = true;
       this._model = record.model.currentValue;
+      this._categorie = this._model.category;
+
       // create question array first
       for (let question = 0; question < this._model.questionnaire.length; question++) {
          const questionFormArray = this._questionnaireForm.get('questionnaire') as FormArray;
@@ -134,6 +130,13 @@ export class FormQuestionnaireComponent implements OnInit {
       }
       this._questionnaireForm.patchValue(this._model);
     }
+  }
+
+  /**
+   * Methode qui retourne la catégorie du questionnaire de base = "Sport"
+   */
+  get categorie(): string {
+    return this._categorie;
   }
 
 

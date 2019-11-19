@@ -4,20 +4,23 @@
     <mat-card-title>{{questionnaire.title}}</mat-card-title>
     <mat-card-subtitle><u>Niveau</u> : {{questionnaire.level}} &nbsp;&nbsp;&nbsp; <u>Catégorie</u> : {{questionnaire.category}}</mat-card-subtitle>
     <mat-card-content>
-      <section>
-        <div class="m-4" *ngFor="let question of questionnaire.questionnaire; let i = index">
-          <hr />
-          <div class="row">
-            <label class="h6">{{question.title}} : </label>
+      <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <section>
+          <div class="m-4" *ngFor="let question of questionnaire.questionnaire; let indexQuestion = index">
+            <hr />
+            <div class="row">
+              <label class="h6">{{question.title}} : </label>
+            </div>
+            <div class="row">
+              <mat-radio-group class="example-radio-group">
+                <mat-radio-button *ngFor="let choice of question.choices" ngDefaultControl ngModel name="choix{{indexQuestion}}" [value]="choice.choice" (click)="ajouterReponse(choice.choice)" required> {{ choice.choice }}</mat-radio-button>
+              </mat-radio-group>
+            </div>
           </div>
-          <div class="row">
-            <mat-radio-group class="example-radio-group">
-              <mat-radio-button *ngFor="let choice of question.choices" [value]="choice">{{choice.choice}}</mat-radio-button><br>
-            </mat-radio-group>
-          </div>
-        </div>
-      </section>
-      <button mat-raised-button color="warn" type="button" (click)="onSave()">Valider</button>
+        </section>
+        <button mat-raised-button color="warn" type="submit" [disabled]="f.invalid">Valider</button>
+      </form>
+      {{ f.value | json }}
     </mat-card-content>
     <mat-card-footer>
     </mat-card-footer>

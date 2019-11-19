@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {Player, Questionnaire} from "../interfaces/questionnaire";
 import {QuestionnairesService} from "../../services/questionnaire.service";

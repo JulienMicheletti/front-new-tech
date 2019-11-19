@@ -18,7 +18,7 @@
       </mat-error>
     </mat-form-field>
     <mat-form-field class="full-width" [class.mgb15]="questionnaireForm.get('category').dirty">
-      <mat-select placeholder="Catégorie" formControlName="category" required name="category" >
+      <mat-select placeholder="Catégorie" formControlName="category" required name="category" [ngModel]="categorie">
         <mat-option value="sport">Sport</mat-option>
         <mat-option value="science">Science</mat-option>
         <mat-option value="cinema">Cinéma</mat-option>
