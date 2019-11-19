@@ -8,7 +8,7 @@ import {MatDialog, MatDialogRef} from '@angular/material';
 import {DialogPseudoComponent} from '../shared/dialog-pseudo/dialog-pseudo.component';
 import {Observable} from 'rxjs';
 
-/**test**/
+/**tes**/
 
 @Component({
   selector: 'app-questionnaire',
