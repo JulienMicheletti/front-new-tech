@@ -11,7 +11,6 @@ import {Questionnaire} from "../interfaces/questionnaire";
 })
 export class QuizComponent implements OnInit {
   private _questionnaire: Questionnaire;
-  // private property to store delete$ value
   private readonly _delete$: EventEmitter<Questionnaire>;
   /**
    * Component constructor

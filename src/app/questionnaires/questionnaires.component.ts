@@ -14,11 +14,7 @@ import {Logger} from "tslint/lib/runner";
   styleUrls: ['./questionnaires.component.css']
 })
 export class QuestionnairesComponent implements OnInit {
-
-  // private property to store dialog reference
   private _questionnaireDialog: MatDialogRef<DialogQuestionnaireComponent>;
-
-  // tableau de questionnaires
   private _questionnaires: Questionnaire[];
 
   constructor(private questionnaireService: QuestionnairesService, private _dialog: MatDialog,  private _route: ActivatedRoute, private router: Router) {
@@ -37,10 +33,6 @@ export class QuestionnairesComponent implements OnInit {
     this.questionnaireService
       .delete(questionnaire.id)
       .subscribe(_ => this._questionnaires = this._questionnaires.filter(__ => __.id !== _));
-  }
-
-  getQuestionnaires(): Observable<Questionnaire[]>  {
-    return this.questionnaireService.fetch();
   }
 
   get questionnaires(): Questionnaire[] {

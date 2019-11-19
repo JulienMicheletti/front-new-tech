@@ -12,18 +12,19 @@ import {filter, flatMap} from "rxjs/operators";
   styleUrls: ['./scoreboard.component.css']
 })
 export class ScoreboardComponent implements OnInit {
-  // tableau de questionnaires
   private _questionnaire: Questionnaire;
-  public chartType: string = 'doughnut';
-  displayedColumns: string[] = ['pseudo', 'score'];
-  tab: number[];
+  private _displayedColumns: string[] = ['pseudo', 'score'];
 
   constructor(private questionnaireService: QuestionnairesService, private _dialog: MatDialog,  private _route: ActivatedRoute, private router: Router) {
 
   }
 
-  getQuestionnaire(id: string): Observable<Questionnaire>  {
-    return this.questionnaireService.fetchOne(id);
+  get questionnaire():Questionnaire  {
+    return this._questionnaire;
+  }
+
+  get displayedColumns(): string[] {
+    return this._displayedColumns;
   }
 
   ngOnInit() {

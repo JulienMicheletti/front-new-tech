@@ -13,17 +13,10 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class QuestionnaireComponent implements OnInit {
 
   private _questionnaire: Questionnaire;
-
   private _quizzForm: FormGroup;
 
   constructor(private _route: ActivatedRoute, private _questionnairesService: QuestionnairesService, private _formBuilder: FormBuilder, private router: Router) {
-    // this._questionnaire = QUESTIONNAIRES[ 0 ];
-    this._route.params
-      .pipe(
-        map((params: any) => params.id),
-        flatMap((id: string) => this._questionnairesService.fetchOne(id))
-      )
-      .subscribe((quizz: Questionnaire) => this._questionnaire = this.genererQuizz(quizz)),  error => {this.router.navigate(['/home'])};
+
   }
 
   genererQuizz(questionnaire: Questionnaire): Questionnaire {
@@ -52,7 +45,12 @@ export class QuestionnaireComponent implements OnInit {
    * OnInit implementation
    */
   ngOnInit() {
-    // initForm();
+    this._route.params
+      .pipe(
+        map((params: any) => params.id),
+        flatMap((id: string) => this._questionnairesService.fetchOne(id))
+      )
+      .subscribe((quizz: Questionnaire) => this._questionnaire = this.genererQuizz(quizz)),  error => {this.router.navigate(['/home'])};
   }
 
 
