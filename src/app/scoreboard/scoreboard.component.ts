@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Questionnaire} from "../interfaces/questionnaire";
-import {QuestionnairesService} from "../../services/questionnaire.service";
+import {Questionnaire} from "../shared/interfaces/questionnaire";
+import {QuestionnairesService} from "../shared/services/questionnaire.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
 import {merge, Observable} from "rxjs";

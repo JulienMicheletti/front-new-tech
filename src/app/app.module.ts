@@ -29,23 +29,23 @@ import { QuestionnairesComponent } from './questionnaires/questionnaires.compone
 const appRoutes: Routes = [
   { path: '', redirectTo: '/categories', pathMatch: 'full' },
 ];
-import {defaultDataServiceConfig } from './config/configDataService';
-import { FormQuestionnaireComponent } from './form-questionnaire/form-questionnaire.component';
-import { DialogQuestionnaireComponent } from './dialog-questionnaire/dialog-questionnaire.component';
+import { FormQuestionnaireComponent } from './shared/form-questionnaire/form-questionnaire.component';
+import { DialogQuestionnaireComponent } from './shared/dialog-questionnaire/dialog-questionnaire.component';
 import {MatTabsModule} from "@angular/material/tabs";
-import { UpdateQuestionnaireComponent } from './update-questionnaire/update-questionnaire.component';
+import { UpdateQuestionnaireComponent } from './shared/update-questionnaire/update-questionnaire.component';
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
-import { StatisticsComponent } from './shared/statistics/statistics.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {ChartsModule} from "ng2-charts";
-import { ScoreboardComponent } from './shared/scoreboard/scoreboard.component';
+import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,7 +99,6 @@ import { ScoreboardComponent } from './shared/scoreboard/scoreboard.component';
 
 
   ],
-  providers: [{ provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }],
   bootstrap: [AppComponent],
 
 })

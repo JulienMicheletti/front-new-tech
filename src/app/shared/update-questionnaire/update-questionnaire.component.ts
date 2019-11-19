@@ -4,7 +4,7 @@ import {MatDialog, MatDialogRef} from '@angular/material';
 import {ActivatedRoute, Router} from '@angular/router';
 import {QuestionnairesService} from '../services/questionnaire.service';
 import {filter, flatMap, map} from 'rxjs/operators';
-import {Choice, Questionnaire} from '../shared/interfaces/questionnaire';
+import {Choice, Questionnaire} from '../interfaces/questionnaire';
 
 @Component({
   selector: 'app-update-questionnaire',

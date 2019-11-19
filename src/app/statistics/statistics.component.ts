@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
-import {Player, Questionnaire} from "../interfaces/questionnaire";
-import {QuestionnairesService} from "../../services/questionnaire.service";
+import {Player, Questionnaire} from "../shared/interfaces/questionnaire";
+import {QuestionnairesService} from "../shared/services/questionnaire.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {QuestionnairesService} from '../services/questionnaire.service';
+import {QuestionnairesService} from '../shared/services/questionnaire.service';
 import {flatMap, map} from 'rxjs/operators';
 import {Choice, Questionnaire} from '../shared/interfaces/questionnaire';
 import {FormBuilder, FormGroup} from '@angular/forms';
