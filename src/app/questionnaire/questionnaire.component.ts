@@ -30,7 +30,9 @@ export class QuestionnaireComponent implements OnInit {
         map((params: any) => params.id),
         flatMap((id: string) => this._questionnairesService.fetchOne(id))
       )
-      .subscribe((quizz: Questionnaire) => this._questionnaire = this.genererQuizz(quizz)),  () => {this.router.navigate(['/home'])};
+      .subscribe((quizz: Questionnaire) => this._questionnaire = this.genererQuizz(quizz)), () => {
+      this.router.navigate(['/home'])
+    };
     this._score = 0;
   }
 
@@ -92,6 +94,12 @@ export class QuestionnaireComponent implements OnInit {
    * OnInit implementation
    */
   ngOnInit() {
+    this._route.params
+      .pipe(
+        map((params: any) => params.id),
+        flatMap((id: string) => this._questionnairesService.fetchOne(id))
+      )
+      .subscribe((quizz: Questionnaire) => this._questionnaire = this.genererQuizz(quizz)),  error => {this.router.navigate(['/home'])};
   }
 
 

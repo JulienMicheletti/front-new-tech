@@ -11,17 +11,36 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class StatisticsComponent implements OnInit {
   // tableau de questionnaires
-  private _questionnaire: Questionnaire[];
   private _sport: number;
   private _cinema: number;
   private _science: number;
   private _musique: number;
-  private chartType: string = 'pie';
+  private _chartType: string = 'pie';
 
   constructor(private questionnaireService: QuestionnairesService, private _dialog: MatDialog,  private _route: ActivatedRoute, private router: Router) {
 
   }
 
+
+  get sport(): number {
+    return this._sport;
+  }
+
+  get cinema(): number {
+    return this._cinema;
+  }
+
+  get science(): number {
+    return this._science;
+  }
+
+  get musique(): number {
+    return this._musique;
+  }
+
+  get chartType(): string {
+    return this._chartType;
+  }
 
   ngOnInit() {
     this.questionnaireService.fetchByCategory('sport').subscribe((questionnaire: Questionnaire[]) => this._sport = questionnaire.length);
