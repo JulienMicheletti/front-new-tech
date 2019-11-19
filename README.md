@@ -35,4 +35,4 @@ brew install node
 
 ## Lancement du projet 
 
-`- yarn run start`
+- `yarn run start`
