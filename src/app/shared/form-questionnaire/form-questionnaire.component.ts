@@ -132,6 +132,7 @@ export class FormQuestionnaireComponent implements OnInit {
     }
   }
 
+
   /**
    * Methode qui retourne la catégorie du questionnaire de base = "Sport"
    */

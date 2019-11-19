@@ -102,6 +102,9 @@ export class QuestionnaireComponent implements OnInit {
     return this._questionnairesService.update(this._questionnaireOriginal, this._questionnaireOriginal.id);
   }
 
+  ngOnInit(): void {
+  }
+
 
 
 }
