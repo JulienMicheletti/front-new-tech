@@ -26,7 +26,6 @@ export class QuestionnaireComponent implements OnInit {
   private _pseudoDialog: MatDialogRef<DialogPseudoComponent>;
 
   constructor(private _route: ActivatedRoute, private _dialog: MatDialog, private _questionnairesService: QuestionnairesService,private _formBuilder: FormBuilder, private router: Router) {
-    // this._questionnaire = QUESTIONNAIRES[ 0 ];
     this._route.params
       .pipe(
         map((params: any) => params.id),
@@ -78,7 +77,6 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   openModel() {
-    console.log('ajout player');
     // open modal
     this._pseudoDialog = this._dialog.open(DialogPseudoComponent, {
       width: '500px',
@@ -97,7 +95,6 @@ export class QuestionnaireComponent implements OnInit {
       pseudo: pseudo,
       score: this._score
     }
-    console.log(player);
     this._questionnaireOriginal.players.push(player);
     return this._questionnairesService.update(this._questionnaireOriginal, this._questionnaireOriginal.id);
   }
