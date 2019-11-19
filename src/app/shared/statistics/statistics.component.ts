@@ -3,10 +3,6 @@ import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {Player, Questionnaire} from "../interfaces/questionnaire";
 import {QuestionnairesService} from "../../services/questionnaire.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {from, merge, Observable} from "rxjs";
-import {filter, flatMap, map} from "rxjs/operators";
-import {MatTableDataSource} from "@angular/material/table";
-import {MatSort} from "@angular/material/sort";
 
 @Component({
   selector: 'app-statistics',
@@ -15,33 +11,25 @@ import {MatSort} from "@angular/material/sort";
 })
 export class StatisticsComponent implements OnInit {
   // tableau de questionnaires
-  private _sport: Questionnaire[];
+  private _questionnaire: Questionnaire[];
+  private _sport: number;
   private _cinema: number;
-  private _science: Questionnaire[];
-  private _musique: Questionnaire[];
-  public chartType: string = 'doughnut';
-  displayedColumns: string[] = ['pseudo', 'score'];
-  tab: number[];
+  private _science: number;
+  private _musique: number;
+  private chartType: string = 'pie';
 
   constructor(private questionnaireService: QuestionnairesService, private _dialog: MatDialog,  private _route: ActivatedRoute, private router: Router) {
 
   }
 
-  getQuestionnaire(id: string): Observable<Questionnaire>  {
-    return this.questionnaireService.fetchOne(id);
-  }
 
   ngOnInit() {
-    this.questionnaireService.fetchByCategory('sport').subscribe((questionnaire: any) => this._sport = questionnaire);
+    this.questionnaireService.fetchByCategory('sport').subscribe((questionnaire: Questionnaire[]) => this._sport = questionnaire.length);
     this.questionnaireService.fetchByCategory('cinema').subscribe((questionnaire: Questionnaire[]) => this._cinema = questionnaire.length);
-    this.questionnaireService.fetchByCategory('science').subscribe((questionnaire: any) => this._science = questionnaire);
-    this.questionnaireService.fetchByCategory('musique').subscribe((questionnaire: any) => this._musique = questionnaire);
+    this.questionnaireService.fetchByCategory('science').subscribe((questionnaire: Questionnaire[]) => this._science = questionnaire.length);
+    this.questionnaireService.fetchByCategory('musique').subscribe((questionnaire: Questionnaire[]) => this._musique = questionnaire.length);
   }
 
-  public chartDatasets: Array<any> = [
-    {
-      data: [9, 50, 100, 40], label: 'Statistiques' }
-  ];
 
   public chartLabels: Array<any> = ['Sport', 'Cinéma', 'Sciences', 'Musique'];
 
@@ -56,6 +44,7 @@ export class StatisticsComponent implements OnInit {
   public chartOptions: any = {
     responsive: false
   };
+
   public chartClicked(e: any): void { }
   public chartHovered(e: any): void { }
 }

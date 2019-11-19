@@ -1,7 +1,8 @@
+
 <div class="section">
   <canvas mdbChart class="cam"
-          [chartType]="chartType"
-          [datasets]="chartDatasets"
+          [data]="[this._sport, this._science, this._cinema, this._musique]"
+          [chartType]="this.chartType"
           [labels]="chartLabels"
           [colors]="chartColors"
           [options]="chartOptions"
@@ -10,7 +11,3 @@
           (chartClick)="chartClicked($event)">
   </canvas>
 </div>
-
-<!-- Copyright 2019 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license -->
