@@ -2,7 +2,7 @@ import {Component, forwardRef, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {QuestionnairesService} from '../shared/services/questionnaire.service';
 import {filter, flatMap, map} from 'rxjs/operators';
-import {Choice, Player, Questionnaire} from '../shared/interfaces/questionnaire';
+import {Choice, Player, Question, Questionnaire} from '../shared/interfaces/questionnaire';
 import {Form, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, NgForm} from '@angular/forms';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {DialogPseudoComponent} from '../shared/dialog-pseudo/dialog-pseudo.component';
@@ -17,6 +17,8 @@ export class QuestionnaireComponent implements OnInit {
 
   // questionnaire sur lequel on fait le quizz
   private _questionnaire: Questionnaire;
+
+  private _questionnaireOriginal: Questionnaire;
 
   private _score: number;
 
@@ -37,7 +39,9 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   genererQuizz(questionnaire: Questionnaire): Questionnaire {
-    for (let question of questionnaire.questionnaire) {
+    this._questionnaireOriginal = questionnaire;
+    this._questionnaire = questionnaire;
+    for (let question of this._questionnaire.questionnaire) {
       let tailleTabChoice = question.choices.length;
       let random = Math.floor(0 + Math.random() * (tailleTabChoice + 1 - 0));
       question.choices.splice(random, 0, new Choice(question.response));
@@ -53,6 +57,7 @@ export class QuestionnaireComponent implements OnInit {
     return this._questionnaire;
   }
 
+
   onSubmit(tabRep: object) {
     let i = 0;
     for (let key in tabRep) {
@@ -61,6 +66,13 @@ export class QuestionnaireComponent implements OnInit {
         this._score += 1;
       }
       i++;
+    }
+    for (let question of this._questionnaire.questionnaire) {
+      for (let i = 0; i < question.choices.length; i++) {
+        if (question.choices[i].choice == question.response){
+          question.choices.splice(i, 1);
+        }
+      }
     }
     this.openModel();
   }
@@ -86,20 +98,8 @@ export class QuestionnaireComponent implements OnInit {
       score: this._score
     }
     console.log(player);
-    this._questionnaire.players.push(player);
-    return this._questionnairesService.update(this._questionnaire, this._questionnaire.id);
-  }
-
-  /**
-   * OnInit implementation
-   */
-  ngOnInit() {
-    this._route.params
-      .pipe(
-        map((params: any) => params.id),
-        flatMap((id: string) => this._questionnairesService.fetchOne(id))
-      )
-      .subscribe((quizz: Questionnaire) => this._questionnaire = this.genererQuizz(quizz)),  error => {this.router.navigate(['/home'])};
+    this._questionnaireOriginal.players.push(player);
+    return this._questionnairesService.update(this._questionnaireOriginal, this._questionnaireOriginal.id);
   }
 
 

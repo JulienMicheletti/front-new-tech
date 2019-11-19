@@ -19,8 +19,8 @@ export class Choice {
 }
 
 export class Question {
-  public readonly title: string;
-  public readonly choices: Choice[];
+  public  title: string;
+  public choices: Choice[];
   public readonly response: string;
 
 }
