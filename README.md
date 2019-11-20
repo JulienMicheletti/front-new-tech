@@ -2,20 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
 
+Back-end: https://github.com/JulienMicheletti/back-new-tech
+
 ## Prérequis
 
-Installer NodeJs.
-
-#### Sous Ubuntu 
- curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
- sudo apt-get install -y nodejs
- 
-#### Sous Debian, en tant que root
-curl -sL https://deb.nodesource.com/setup_12.x | bash -
-apt-get install -y nodejs
-
-#### Sous MacOS
-brew install node
+Installer [NodeJs](https://nodejs.org/en/)
 
 ## Mise en place
 
